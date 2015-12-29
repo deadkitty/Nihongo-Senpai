@@ -1,0 +1,35 @@
+﻿159|Tobira Kanjis L2|3|34
+991|159|実|tatsächlich, real|ジツ|まこと、み、みの、さね|実世間 - じっせけん - Realität||2.5|0|0|0
+992|159|相|Aspekt, Phase, gegenseitig, Gesicht, Erscheinung|ショウ、ソウ|あい|相伝 - そうでん - vererben, überliefern||2.5|0|0|0
+993|159|難|Fehler, Mängel, Kritik, Not, Unglück, Schwierigkeit|ナン|むずか、にく、かた、がた|難事 - なんじ - schwierige Angelegenheit||2.5|0|0|0
+994|159|性|Art, Wesen, Charakter, Geschlecht|セイ、ショウ|さが|性交 - せいこう - Geschlechtsverkehr||2.5|0|0|0
+995|159|比|gleichsetzen, vergleichen|ヒ、ビ|くら、たぐい|比丘 - びく - Buddhistischer Mönch||2.5|0|0|0
+996|159|代|Zeitalter, Ära, Generation, Kosten, Preis|タイ、ダイ|か、しろ、よ|代々 - だいだい - seit Generationen||2.5|0|0|0
+997|159|感|Gefühl, Empfindung|カン|-|感傷 - かんしょう - Sentimentalität, Empfindsamkeit||2.5|0|0|0
+998|159|表|Ausdruck, Oberfläche, ausdrücken, zeigen|ヒョウ|あら、あらわ、おもて|表彰 - ひょうしょう - öffentliche Auszeichnung||2.5|0|0|0
+999|159|忙|geschäftig, in Eile, unter Druck|ボウ|いそが、せわ|多忙 - たぼう - sehr beschäftigt||2.5|0|0|0
+1000|159|短|kurz|タン|みじか|短信 - たんしん - kurze Nachricht, Kurzmeldung||2.5|0|0|0
+1001|159|晩|Abend, Nacht|バン|-|晩夏 - ばんか - Spätsommer||2.5|0|0|0
+1002|159|由|abhängig sein, beruhen auf ..., Grund, Ursache|ユ、ユウ、ユイ|よ、よし|由来 - ゆらい - Herkunft, Ursprung, von Natur aus, ursprünglich||2.5|0|0|0
+1003|159|必|gewiss, sicher, zweifellos|ヒツ、ヒッ|かなら|必修 - ひっしゅう - etw. unbedingt lernen müssen, obligatorisch||2.5|0|0|0
+1004|159|要|notwendigkeit, benötigen|ヨウ|い|要件 - ようけん - wichtige Bedingung, Erforderniss||2.5|0|0|0
+1005|159|合|Vereinigung, übereinstimmen, anpassen, vegleichen|ガッ、ゴウ、カッ|あ、あい|合体 - がったい - Vereinigung||2.5|0|0|0
+1006|159|昨|Gestern, vergangen, letzt|サク|き|昨夕 - さくゆう - gestern Abend||2.5|0|0|0
+1007|159|皆|alle|カイ|みな、みんな|皆勤 - かいきん - regelmäßig teilnehmen, nie fehlen||2.5|0|0|0
+1008|159|敬|Respekt erweisen, verehren, achten|ケイ、キョウ|うやま|敬慕 - けいぼ - (sehnsüchtige) Bewunderung, Hochachtung, Verehrung||2.5|0|0|0
+1009|159|複|doppelt, mehrfach, zusammengesetzt, wieder|フク|-|複写紙 - ふくしゃし - Kopierpapier||2.5|0|0|0
+1010|159|課|Abteilung, auferlegen, zuweisen, Lektion|カ|-|課業 - かぎょう - Aufgabe, Untericht||2.5|0|0|0
+1011|159|例|Beispiel, Brauch, Gewohnheit|レイ|ためし、たと|例外 - れいがい - Ausnahme||2.5|0|0|0
+1012|159|連|aufeinander folgen, Begleiter, zusammenarbeiten|レン|つ、つら|連中 - れんちゅう - Clique, Gruppe, Kreis (von Gleichgesinnten)||2.5|0|0|0
+1013|159|絡|sich verwickeln, umschlingen|ラク|から|脈絡 - みゃくらく - logischer Zusammenhang||2.5|0|0|0
+1014|159|落|fallen, Auslassung, Ende|ラク|お|落丁 - らくちょう - fehlende/fehlerhafte Seiten/Buchexemplare||2.5|0|0|0
+1015|159|面|Gesicht, Maske, Aspekt, Seite|メン|おも、おもて、つら|面々 - めんめん - jede, jeder einzelne, alle||2.5|0|0|0
+1016|159|僕|Ich, Diener, Knecht|ボク|しもべ|下僕 - げぼく - Diener||2.5|0|0|0
+1017|159|困|in Schwierigkeiten, von etw. betroffen sein|コン|こま|困憊 - こんぱい - Erschöpfung||2.5|0|0|0
+1018|159|願|bitten, ersuchen, wunschen, hoffen|ガン|ねが|出願 - しゅつがん - Bewerbung, Gesuch||2.5|0|0|0
+1019|159|簡|(Bambus) Schreibtäfelchen, auswählen, einfach, kurz, schlicht|カン、ケン|-|簡抜 - かんばつ - Auswahl||2.5|0|0|0
+1020|159|単|einfach, simpel, mono-, uni-|タン|-|単作 - たんさく - Monokultur||2.5|0|0|0
+1021|159|論|Abhandlung, Theorie, Argumentation, These|ロン|あげつら|論及 - ろんきゅう - zu sprechen kommen auf, erwähnen||2.5|0|0|0
+1022|159|誰|jemand, wer|スイ|だれ、たれ|誰彼 - だれかれ - dieser oder jener||2.5|0|0|0
+1023|159|議|Beratung, Diskusion, Konferenz, Meinung, Vorschlag, Antrag|ギ|-|会議 - かいぎ - Konferenz||2.5|0|0|0
+1024|159|過|das Maß Überschreiten, durchfahren, Fehler, Schuld|カ|あやま、す、よ|過剰 - かじょう - Überschuss||2.5|0|0|0

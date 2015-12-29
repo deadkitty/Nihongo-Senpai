@@ -1,0 +1,14 @@
+D:\Google Drive\Schule\9. Semester\Mobile Computing II\NihongoSenpai\SenpaiClientTest\bin\Debug\SenpaiClientTest.exe.config
+D:\Google Drive\Schule\9. Semester\Mobile Computing II\NihongoSenpai\SenpaiClientTest\bin\Debug\SenpaiClientTest.exe
+D:\Google Drive\Schule\9. Semester\Mobile Computing II\NihongoSenpai\SenpaiClientTest\bin\Debug\SenpaiClientTest.pdb
+D:\Google Drive\Schule\9. Semester\Mobile Computing II\NihongoSenpai\SenpaiClientTest\obj\Debug\SenpaiClientTest.csprojResolveAssemblyReference.cache
+D:\Google Drive\Schule\9. Semester\Mobile Computing II\NihongoSenpai\SenpaiClientTest\obj\Debug\SenpaiClientTest.exe
+D:\Google Drive\Schule\9. Semester\Mobile Computing II\NihongoSenpai\SenpaiClientTest\obj\Debug\SenpaiClientTest.pdb
+D:\Google Drive\Schule\9. Semester\Mobile Computing II\NihongoSenpai\SenpaiClientTest\bin\Debug\Newtonsoft.Json.dll
+D:\Google Drive\Schule\9. Semester\Mobile Computing II\NihongoSenpai\SenpaiClientTest\bin\Debug\System.Net.Http.Formatting.dll
+D:\Google Drive\Schule\9. Semester\Mobile Computing II\NihongoSenpai\SenpaiClientTest\bin\Debug\System.Web.Http.dll
+D:\Google Drive\Schule\9. Semester\Mobile Computing II\NihongoSenpai\SenpaiClientTest\bin\Debug\Newtonsoft.Json.xml
+D:\Google Drive\Schule\9. Semester\Mobile Computing II\NihongoSenpai\SenpaiClientTest\bin\Debug\System.Net.Http.Formatting.xml
+D:\Google Drive\Schule\9. Semester\Mobile Computing II\NihongoSenpai\SenpaiClientTest\bin\Debug\System.Web.Http.xml
+D:\Google Drive\Schule\9. Semester\Mobile Computing II\NihongoSenpai\SenpaiClientTest\bin\Debug\de\System.Net.Http.Formatting.resources.dll
+D:\Google Drive\Schule\9. Semester\Mobile Computing II\NihongoSenpai\SenpaiClientTest\bin\Debug\de\System.Web.Http.resources.dll

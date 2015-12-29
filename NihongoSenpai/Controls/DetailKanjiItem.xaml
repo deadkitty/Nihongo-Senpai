@@ -1,0 +1,57 @@
+﻿<UserControl 
+    x:Class="NihongoSenpai.Controls.DetailKanjiItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="800" d:DesignWidth="480">
+
+    <Grid x:Name="LayoutRoot" Margin="8">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*" MinHeight="220"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*" MinHeight="61"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*" MinHeight="60"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*" MinHeight="60"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*" MinHeight="60"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Style="{StaticResource kanjiDetailStaticTextblock}" Text="Kanji"/>
+        <TextBlock Grid.Row="2" Style="{StaticResource kanjiDetailStaticTextblock}" Text="Übersetzung"/>
+        <TextBlock Grid.Row="4" Style="{StaticResource kanjiDetailStaticTextblock}" Text="Onyomi"/>
+        <TextBlock Grid.Row="6" Style="{StaticResource kanjiDetailStaticTextblock}" Text="Kunyomi"/>
+        <TextBlock Grid.Row="8" Style="{StaticResource kanjiDetailStaticTextblock}" Text="Beispiel"/>
+
+        <Grid x:Name="kanjiGrid" Grid.Row="1" Tap="kanjiGrid_Tap">
+            <TextBlock x:Name="kanjiTabTextblock" Style="{StaticResource kanjiDetailTabToShowTextblock}" Text="zum anzeigen hier tippen" Visibility="Collapsed"/>
+            <TextBlock x:Name="kanjiTextblock"    Style="{StaticResource kanjiDetailKanjiTextblock}"     Text="練" Visibility="Visible"/>
+        </Grid>
+
+        <TextBlock Grid.Row="3" x:Name="meaningTextblock" Style="{StaticResource kanjiDetailAnswerTextblock}" Text="Himmel, Frei werden, leer" FontSize="26"/>
+
+        <Grid x:Name="onyomiGrid" Grid.Row="5" Tap="onyomiGrid_Tap">
+            <TextBlock x:Name="onyomiTabTextblock" Style="{StaticResource kanjiDetailTabToShowTextblock}" Text="zum anzeigen hier tippen" Visibility="Collapsed"/>
+            <TextBlock x:Name="onyomiTextblock"    Style="{StaticResource kanjiDetailAnswerTextblock}"    Text="クウ"/>
+        </Grid>
+
+        <Grid x:Name="kunyomiGrid" Grid.Row="7" Tap="kunyomiGrid_Tap">
+            <TextBlock x:Name="kunyomiTabTextblock" Style="{StaticResource kanjiDetailTabToShowTextblock}" Text="zum anzeigen hier tippen" Visibility="Collapsed"/>
+            <TextBlock x:Name="kunyomiTextblock"    Style="{StaticResource kanjiDetailAnswerTextblock}"    Text="あ（ける）、から"/>
+        </Grid>
+
+        <Grid x:Name="exampleGrid" Grid.Row="9" Tap="exampleGrid_Tap">
+            <TextBlock x:Name="exampleTabTextblock" Style="{StaticResource kanjiDetailTabToShowTextblock}" Text="zum anzeigen hier tippen" Visibility="Collapsed"/>
+            <TextBlock x:Name="exampleTextblock"    Style="{StaticResource kanjiDetailAnswerTextblock}"    Text="空港 - くうこう - Flughafen"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

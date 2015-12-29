@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Files>
+  <XAPFiles>
+    <File>resources.pri</File>
+    <File>NihongoSenpai.dll</File>
+    <File>Assets\AlignmentGrid.png</File>
+    <File>Assets\AppBar\delete.png</File>
+    <File>Assets\AppBar\edit.png</File>
+    <File>Assets\AppBar\german.png</File>
+    <File>Assets\AppBar\germanSelected.png</File>
+    <File>Assets\AppBar\japanese.png</File>
+    <File>Assets\AppBar\japaneseGerman.png</File>
+    <File>Assets\AppBar\japaneseGermanSelected.png</File>
+    <File>Assets\AppBar\japaneseSelected.png</File>
+    <File>Assets\AppBar\noGerman.png</File>
+    <File>Assets\AppBar\noJapanese.png</File>
+    <File>Assets\AppBar\noJapGer.png</File>
+    <File>Assets\AppBar\percentage.png</File>
+    <File>Assets\AppBar\questionmark.png</File>
+    <File>Assets\AppBar\share.png</File>
+    <File>Assets\Backgrounds\Chibi0.png</File>
+    <File>Assets\Backgrounds\Chibi0g.png</File>
+    <File>Assets\Backgrounds\Chibi1.png</File>
+    <File>Assets\Backgrounds\Chibi1g.png</File>
+    <File>Assets\Backgrounds\Chibi2.png</File>
+    <File>Assets\Backgrounds\Chibi2g.png</File>
+    <File>Assets\Backgrounds\Chibi3.png</File>
+    <File>Assets\Backgrounds\Chibi3g.png</File>
+    <File>Assets\Backgrounds\Chibi4.png</File>
+    <File>Assets\Backgrounds\Chibi4g.png</File>
+    <File>Assets\Backgrounds\Chibi5.png</File>
+    <File>Assets\Backgrounds\Chibi5g.png</File>
+    <File>Assets\Backgrounds\Chibi6.png</File>
+    <File>Assets\Backgrounds\Chibi6g.png</File>
+    <File>Assets\Backgrounds\Chibi7.png</File>
+    <File>Assets\Backgrounds\Chibi7g.png</File>
+    <File>Assets\Backgrounds\Chibi8.png</File>
+    <File>Assets\Backgrounds\Chibi8g.png</File>
+    <File>Assets\BadgeLogo.png</File>
+    <File>Assets\Logo.png</File>
+    <File>Assets\SplashScreen.png</File>
+    <File>Assets\SquareTile150x150.png</File>
+    <File>Assets\SquareTile71x71.png</File>
+    <File>Assets\StoreLogo.png</File>
+    <File>Assets\WideLogo.png</File>
+    <File>Assets\Tiles\FlipCycleTileLarge.png</File>
+    <File>Assets\Tiles\FlipCycleTileSmall.png</File>
+    <File>Assets\Tiles\IconicTileMediumLarge.png</File>
+    <File>Assets\Tiles\IconicTileSmall.png</File>
+    <File>README_FIRST.txt</File>
+    <File>Resources\Signs.txt</File>
+    <File>Toolkit.Content\ApplicationBar.Add.png</File>
+    <File>Toolkit.Content\ApplicationBar.Cancel.png</File>
+    <File>Toolkit.Content\ApplicationBar.Check.png</File>
+    <File>Toolkit.Content\ApplicationBar.Delete.png</File>
+    <File>Toolkit.Content\ApplicationBar.Select.png</File>
+    <File>AppManifest.xaml</File>
+    <File>Assets\ApplicationIcon.png</File>
+    <File>Assets\Tiles\FlipCycleTileMedium.png</File>
+    <File>Microsoft.Phone.Controls.Toolkit.dll</File>
+    <File Type="PCL">Newtonsoft.Json.dll</File>
+    <File>Newtonsoft.Json.xml</File>
+    <File>WMAppManifest.xml</File>
+    <File>AppxManifest.xml</File>
+  </XAPFiles>
+  <APPXFiles />
+</Files>
