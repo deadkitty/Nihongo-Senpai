@@ -1,0 +1,60 @@
+﻿<Page x:Class="SenpaiCreationKit.Pages.MarketplacePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d"
+      Width="{StaticResource AppWidth}"
+      Height="{StaticResource AppHeight}"
+      Loaded="Page_Loaded"
+      Unloaded="Page_Unloaded"
+      Background="{DynamicResource SelectButtonColor}">
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Column="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="0" x:Name="UploadLessons"   Style="{StaticResource MenuButton}" Content="UploadLessons"   Click="UploadLessons_Click"/>
+            <Button Grid.Row="1" x:Name="UpdateLessons"   Style="{StaticResource MenuButton}" Content="UpdateLessons"   Click="UpdateLessons_Click"/>
+            <Button Grid.Row="2" x:Name="DeleteLessons"   Style="{StaticResource MenuButton}" Content="DeleteLessons"   Click="DeleteLessons_Click"/>
+            <Button Grid.Row="3" x:Name="DeleteDatabase"  Style="{StaticResource MenuButton}" Content="DeleteDatabase"  Click="DeleteDatabase_Click"/>
+            <Button Grid.Row="4" x:Name="exitMarketplace" Style="{StaticResource MenuButton}" Content="exitMarketplace" Click="exitMarketplace_Click" VerticalAlignment="Bottom"/>
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Lokale Lektionen" Style="{StaticResource LabelTextblockSmall}"/>
+            <ListBox Grid.Row="1" x:Name="localLessonsListbox" Style="{StaticResource ListboxStyle}" SelectionMode="Extended"/>
+        </Grid>
+
+        <Grid Grid.Column="2">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Lektionen im Marktplatz" Style="{StaticResource LabelTextblockSmall}"/>
+            <ListBox Grid.Row="1" x:Name="uploadedLessonsListbox" Style="{StaticResource ListboxStyle}" SelectionMode="Extended" SelectionChanged="uploadedLessonsListbox_SelectionChanged"/>
+        </Grid>        
+    </Grid>
+</Page>

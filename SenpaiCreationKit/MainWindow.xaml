@@ -1,0 +1,13 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Pages="clr-namespace:SenpaiCreationKit.Pages" x:Class="SenpaiCreationKit.MainWindow"
+        Title="{Binding Resources.AppName, Source={StaticResource Strings}}" Loaded="Window_Loaded"
+        MinWidth="{StaticResource AppWidth}"
+        MinHeight="{StaticResource AppHeight}"
+        SizeToContent="WidthAndHeight" Closed="Window_Closed">
+
+    <Frame x:Name="rootFrame" NavigationUIVisibility="Hidden">
+
+    </Frame>
+</Window>

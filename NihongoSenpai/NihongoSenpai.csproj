@@ -1,0 +1,451 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FA97930B-1EBE-4145-867F-9AC61DEA28B2}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NihongoSenpai</RootNamespace>
+    <AssemblyName>NihongoSenpai</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>NihongoSenpai_$(Configuration)_$(Platform).xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>NihongoSenpai.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <DefaultLanguage>de-DE</DefaultLanguage>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\CombineWordsController.cs" />
+    <Compile Include="Controller\ConjugationController.cs" />
+    <Compile Include="Controller\FlashcardsController.cs" />
+    <Compile Include="Controller\GerJapItem.cs" />
+    <Compile Include="Controller\InsertController.cs" />
+    <Compile Include="Controller\IPageUpdater.cs" />
+    <Compile Include="Controller\JapGerItem.cs" />
+    <Compile Include="Controller\VocabController.cs" />
+    <Compile Include="Controls\DetailKanjiItem.xaml.cs">
+      <DependentUpon>DetailKanjiItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DetailWordItem.xaml.cs">
+      <DependentUpon>DetailWordItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EditWordControl.xaml.cs">
+      <DependentUpon>EditWordControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PracticeConjugationItem.xaml.cs">
+      <DependentUpon>PracticeConjugationItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SelectShowDescriptionControl.xaml.cs">
+      <DependentUpon>SelectShowDescriptionControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SelectShowWordControl.xaml.cs">
+      <DependentUpon>SelectShowWordControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SelectTypeControl.xaml.cs">
+      <DependentUpon>SelectTypeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StatisticsItem.xaml.cs">
+      <DependentUpon>StatisticsItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AppData.cs" />
+    <Compile Include="Data\CombineWordsData.cs" />
+    <Compile Include="Data\ConjugationData.cs" />
+    <Compile Include="Data\Database\Cloze.cs" />
+    <Compile Include="Data\Database\DataManager.cs" />
+    <Compile Include="Data\Database\Kanji.cs" />
+    <Compile Include="Data\Database\Lesson.cs" />
+    <Compile Include="Data\Database\SenpaiDatabase.cs" />
+    <Compile Include="Data\Database\Word.cs" />
+    <Compile Include="Data\FlashcardsData.cs" />
+    <Compile Include="Data\InsertData.cs" />
+    <Compile Include="Data\IVocabItem.cs" />
+    <Compile Include="Data\VocabData.cs" />
+    <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditLessonPage.xaml.cs">
+      <DependentUpon>EditLessonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MarketplacePage.xaml.cs">
+      <DependentUpon>MarketplacePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PracticeCombinePage.xaml.cs">
+      <DependentUpon>PracticeCombinePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PracticeConjugationPage.xaml.cs">
+      <DependentUpon>PracticeConjugationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PracticeFlashcardsPage.xaml.cs">
+      <DependentUpon>PracticeFlashcardsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PracticeInsertPage.xaml.cs">
+      <DependentUpon>PracticeInsertPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PracticeVocabPage.xaml.cs">
+      <DependentUpon>PracticeVocabPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SearchWordsPage.xaml.cs">
+      <DependentUpon>SearchWordsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SelectCombinePage.xaml.cs">
+      <DependentUpon>SelectCombinePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SelectConjugationPage.xaml.cs">
+      <DependentUpon>SelectConjugationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SelectFlashcardsPage.xaml.cs">
+      <DependentUpon>SelectFlashcardsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SelectInsertPage.xaml.cs">
+      <DependentUpon>SelectInsertPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SelectKanjiPage.xaml.cs">
+      <DependentUpon>SelectKanjiPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SelectLessonPage.xaml.cs">
+      <DependentUpon>SelectLessonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SelectVocabPage.xaml.cs">
+      <DependentUpon>SelectVocabPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ShowGrammarPage.xaml.cs">
+      <DependentUpon>ShowGrammarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ShowKanjiPage.xaml.cs">
+      <DependentUpon>ShowKanjiPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ShowVocabPage.xaml.cs">
+      <DependentUpon>ShowVocabPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\AppResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\AppSettings.cs" />
+    <Compile Include="Utilities\AppStreamReader.cs" />
+    <Compile Include="Utilities\AppStreamWriter.cs" />
+    <Compile Include="Utilities\NavigationHelper.cs" />
+    <Compile Include="Utilities\Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="Controls\DetailKanjiItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\DetailWordItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\EditWordControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PracticeConjugationItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SelectShowDescriptionControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SelectShowWordControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SelectTypeControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\StatisticsItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditLessonPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\MarketplacePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\PracticeCombinePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\PracticeConjugationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\PracticeFlashcardsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\PracticeInsertPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\PracticeVocabPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SearchWordsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SelectCombinePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SelectConjugationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SelectFlashcardsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SelectInsertPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SelectKanjiPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SelectLessonPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SelectVocabPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ShowGrammarPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ShowKanjiPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ShowVocabPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\DataTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\AppBar\delete.png" />
+    <Content Include="Assets\AppBar\edit.png" />
+    <Content Include="Assets\AppBar\german.png" />
+    <Content Include="Assets\AppBar\germanSelected.png" />
+    <Content Include="Assets\AppBar\japanese.png" />
+    <Content Include="Assets\AppBar\japaneseGerman.png" />
+    <Content Include="Assets\AppBar\japaneseGermanSelected.png" />
+    <Content Include="Assets\AppBar\japaneseSelected.png" />
+    <Content Include="Assets\AppBar\noGerman.png" />
+    <Content Include="Assets\AppBar\noJapanese.png" />
+    <Content Include="Assets\AppBar\noJapGer.png" />
+    <Content Include="Assets\AppBar\percentage.png" />
+    <Content Include="Assets\AppBar\questionmark.png" />
+    <Content Include="Assets\AppBar\share.png" />
+    <Content Include="Assets\ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Backgrounds\Chibi0.png" />
+    <Content Include="Assets\Backgrounds\Chibi0g.png" />
+    <Content Include="Assets\Backgrounds\Chibi1.png" />
+    <Content Include="Assets\Backgrounds\Chibi1g.png" />
+    <Content Include="Assets\Backgrounds\Chibi2.png" />
+    <Content Include="Assets\Backgrounds\Chibi2g.png" />
+    <Content Include="Assets\Backgrounds\Chibi3.png" />
+    <Content Include="Assets\Backgrounds\Chibi3g.png" />
+    <Content Include="Assets\Backgrounds\Chibi4.png" />
+    <Content Include="Assets\Backgrounds\Chibi4g.png" />
+    <Content Include="Assets\Backgrounds\Chibi5.png" />
+    <Content Include="Assets\Backgrounds\Chibi5g.png" />
+    <Content Include="Assets\Backgrounds\Chibi6.png" />
+    <Content Include="Assets\Backgrounds\Chibi6g.png" />
+    <Content Include="Assets\Backgrounds\Chibi7.png" />
+    <Content Include="Assets\Backgrounds\Chibi7g.png" />
+    <Content Include="Assets\Backgrounds\Chibi8.png" />
+    <Content Include="Assets\Backgrounds\Chibi8g.png" />
+    <Content Include="Assets\BadgeLogo.png" />
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\SquareTile150x150.png" />
+    <Content Include="Assets\SquareTile71x71.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\umaru-chan.png" />
+    <Content Include="Assets\WideLogo.png" />
+    <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileMedium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileMediumLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="README_FIRST.txt" />
+    <Content Include="Resources\Signs.txt" />
+    <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=8.0.1.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>

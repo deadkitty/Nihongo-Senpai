@@ -1,0 +1,85 @@
+﻿160|Tobira L3|0|84
+4509|160|ぎじゅつ|技術|Technologie, Technik, Fähigkeit||0|2,5|0|0|2,5|0|0|15|0|0
+4510|160|はったつする|発達する|entwickeln, wachsen||3|2,5|0|0|2,5|0|0|15|0|0
+4511|160|かいじょう|会場|Versammlungsort||0|2,5|0|0|2,5|0|0|15|0|0
+4512|160|にがおえ|似顔絵|Portrait, Abbild||0|2,5|0|0|2,5|0|0|15|0|0
+4513|160|かく|描く|malen, zeichnen||1|2,5|0|0|2,5|0|0|15|0|0
+4514|160|くも、クモ|蜘蛛|Spinne||0|2,5|0|0|2,5|0|0|15|0|0
+4515|160|てんじょう|天井|Zimmerdecke||0|2,5|0|0|2,5|0|0|15|0|0
+4516|160|しゅじゅつ|手術|Operation, chirurgischer Eingriff|～をする|0|2,5|0|0|2,5|0|0|15|0|0
+4517|160|すでに|既に|bereits, vorher||6|2,5|0|0|2,5|0|0|15|0|0
+4518|160|じっさいに|実際に|tatsächlich, in Wahrheit||11|2,5|0|0|2,5|0|0|15|0|0
+4519|160|しゃかい|社会|Gesellschaft, Welt, Öffentlichkeit||0|2,5|0|0|2,5|0|0|15|0|0
+4520|160|かつやくする|活躍する|tätig sein, eine aktive/wichtige Rolle spielen, wirksam sein||3|2,5|0|0|2,5|0|0|15|0|0
+4521|160|留守番をする|留守番をする|das Haus Hüten|während eine Person nicht da ist|11|2,5|0|0|2,5|0|0|15|0|0
+4522|160|はこぶ|運ぶ|tragen, transportieren||1|2,5|0|0|2,5|0|0|15|0|0
+4523|160|にんげん|人間|Mensch||0|2,5|0|0|2,5|0|0|15|0|0
+4524|160|くらす|暮らす|leben||1|2,5|0|0|2,5|0|0|15|0|0
+4525|160|とし|年|Jahr, Alter, jahre alt||0|2,5|0|0|2,5|0|0|15|0|0
+4526|160|ケアハウス||Altenheim||0|2,5|0|0|2,5|0|0|15|0|0
+4527|160|あざらし、アザラシ|海豹|Seehund||0|2,5|0|0|2,5|0|0|15|0|0
+4528|160|け|毛|Haar, Fell, Federn, Behaarung||0|2,5|0|0|2,5|0|0|15|0|0
+4529|160|さわる|触る|berühren, fühlen|etw.|1|2,5|0|0|2,5|0|0|15|0|0
+4530|160|くび|首|Nacken||0|2,5|0|0|2,5|0|0|15|0|0
+4531|160|うごかす|動かす|bewegen|etw.|1|2,5|0|0|2,5|0|0|15|0|0
+4532|160|こえ|声|Stimme||0|2,5|0|0|2,5|0|0|15|0|0
+4533|160|まわり|周り|Umgebung, Umfeld, Nähe, Nachbarschaft||0|2,5|0|0|2,5|0|0|15|0|0
+4534|160|あつまる|集まる|sammeln||1|2,5|0|0|2,5|0|0|15|0|0
+4535|160|どうぶつ|動物|Tier||0|2,5|0|0|2,5|0|0|15|0|0
+4536|160|アレルギー||Allergie||0|2,5|0|0|2,5|0|0|15|0|0
+4537|160|だいじょうぶ|大丈夫|sicher, alles in Ordnung||5|2,5|0|0|2,5|0|0|15|0|0
+4538|160|あっ||ahh!!, ohh!!||11|2,5|0|0|2,5|0|0|15|0|0
+4539|160|だいじ|大事|wichtig||5|2,5|0|0|2,5|0|0|15|0|0
+4540|160|こうか|効果|Wirksamkeit, Effektivität, Resultat,Effekt||0|2,5|0|0|2,5|0|0|15|0|0
+4541|160|ギネスブック||Guinnesbuch der Rekorde||0|2,5|0|0|2,5|0|0|15|0|0
+4542|160|のる|載る|berichtet werden, erscheinen|in nem Magazin, etc.|1|2,5|0|0|2,5|0|0|13|0|0
+4543|160|にゅうがくする|入学する|in die Schule Eintretten, immatrikulieren||3|2,5|0|0|2,5|0|0|15|0|0
+4544|160|ごうかくする|合格する|bestehen|einen Test, etc.|3|2,5|0|0|2,5|0|0|15|0|0
+4545|160|おいわい|お祝い|Glückwunsch, Gratulation||0|2,5|0|0|2,5|0|0|15|0|0
+4546|160|はじめて|初めて|zum ersten Mal||6|2,5|0|0|2,5|0|0|15|0|0
+4547|160|さいしょ|最初|als erstes||6|2,5|0|0|2,5|0|0|15|0|0
+4548|160|さいしょ|最初|der Anfang||0|2,5|0|0|2,5|0|0|15|0|0
+4549|160|つける||bezeichnen, benennen|名前を～|2|2,5|0|0|2,5|0|0|15|0|0
+4550|160|りかいする|理解する|verstehen,  begreifen, erfassen, einsehen||3|2,5|0|0|2,5|0|0|15|0|0
+4551|160|うごく|動く|sich bewegen, gehen, funktionieren||1|2,5|0|0|2,5|0|0|15|0|0
+4552|160|ざんねん|残念|bedauerlich, bedauernswert, enttäuschend, ärgerlich||5|2,5|0|0|2,5|0|0|15|0|0
+4553|160|これから||von jetzt an, in Zukunft||6|2,5|0|0|2,5|0|0|15|0|0
+4554|160|うまれる|生まれる|geboren werden, zur Welt kommen||2|2,5|0|0|2,5|0|0|15|0|0
+4555|160|えんそうする|演奏する|spielen, vortragen, darbieten|Musik|3|2,5|0|0|2,5|0|0|13|0|0
+4556|160|がくしゅうする|学習する|lernen, studieren||3|2,5|0|0|2,5|0|0|15|0|0
+4557|160|しょくじする|食事する|eine Mahlzeit haben||3|2,5|0|0|2,5|0|0|15|0|0
+4558|160|さいこう|最高|das Höchste, das Beste, das Maximum, das Größte||0|2,5|0|0|2,5|0|0|15|0|0
+4559|160|うけつけ|受付|Rezeption, Auskunft, Empfang||0|2,5|0|0|2,5|0|0|15|0|0
+4560|160|あんないする|案内する|jmd. führen, geleiten, begleiten, benachrichtigen||3|2,5|0|0|2,5|0|0|15|0|0
+4561|160|げんそく|原則|Prinzip, Grundsatz, Regel||0|2,5|0|0|2,5|0|0|15|0|0
+4562|160|けがする|怪我する|verletzt werden, sich verletzen||3|2,5|0|0|2,5|0|0|15|0|0
+4563|160|いはんする|違反する|ein Vergehen begehen, übertreten, verletzten, verstoßen||3|2,5|0|0|2,5|0|0|15|0|0
+4564|160|まもる|守る|beschützen, verteidigen||1|2,5|0|0|2,5|0|0|15|0|0
+4565|160|もんだい|問題|Problem, Frage, Fehler||0|2,5|0|0|2,5|0|0|15|0|0
+4566|160|いらいする|依頼する|beauftragen mit, bitten um, sich verlassen auf||3|2,5|0|0|2,5|0|0|15|0|0
+4567|160|かんしゃする|感謝する|danken, dankbar sein||3|2,5|0|0|2,5|0|0|15|0|0
+4568|160|ホームステイさき|ホームステイ先|Gastfamilie||0|2,5|0|0|2,5|0|0|15|0|0
+4569|160|たのむ|頼む|bitten, um einen Gefallen bitten, bestellen||1|2,5|0|0|2,5|0|0|15|0|0
+4570|160|～くん|～君|Namenserweiterung für männer von gleichen oder niedrigeren Status||9|2,5|0|0|2,5|0|0|15|0|0
+4571|160|まちがう|間違う|einen Fehler machen||1|2,5|0|0|2,5|0|0|15|0|0
+4572|160|ハイブリッド（しゃ）|ハイブリッド（車）|Hybridauto||0|2,5|0|0|2,5|0|0|15|0|0
+4573|160|エコカー||Umweltfreundliches Auto||0|2,5|0|0|2,5|0|0|15|0|0
+4574|160|チェックする||etw. checken/überprüfen||3|2,5|0|0|2,5|0|0|15|0|0
+4575|160|はつおんする|発音する|aussprechen||3|2,5|0|0|2,5|0|0|15|0|0
+4576|160|もと|元|Wurzel, Ursprung||0|2,5|0|0|2,5|0|0|15|0|0
+4577|160|エンスト||Abwürgen, Absterben des Motors||0|2,5|0|0|2,5|0|0|15|0|0
+4578|160|べんきょうになる|勉強になる|lehrreich sein, aufschlussreich sein, informativ sein||11|2,5|0|0|2,5|0|0|15|0|0
+4579|160|はっぴょうする|発表する|veröffentlichen, ankündigen, bekanntmachen||3|2,5|0|0|2,5|0|0|15|0|0
+4580|160|ちょっとよろしいでしょうか。||hast du einen Moment?||11|2,5|0|0|2,5|0|0|15|0|0
+4581|160|このあいだ|この間|neulich, vor kurzem, letztes Mal||6|2,5|0|0|2,5|0|0|15|0|0
+4582|160|ハンドル||Lenkrad||0|2,5|0|0|2,5|0|0|15|0|0
+4583|160|バックミラー||Rückspiegel||0|2,5|0|0|2,5|0|0|15|0|0
+4584|160|カーナビ||Navigationssystem||0|2,5|0|0|2,5|0|0|15|0|0
+4585|160|わせいえいご|和製英語|japanisches Englisch, in Japan eingeprägtes englisches Wort||0|2,5|0|0|2,5|0|0|15|0|0
+4586|160|アメリカンコーヒー||Amerikanischer Kaffee ( = Schwacher Kaffee)||0|2,5|0|0|2,5|0|0|15|0|0
+4587|160|うんてんめんきょ|運転免許|Führerschein||0|2,5|0|0|2,5|0|0|15|0|0
+4588|160|なるほど||achsoo!!, ahh verstehe!!, wirklich?! allerdings!!||11|2,5|0|0|2,5|0|0|15|0|0
+4589|160|リサーチ||Forschung, Untersuchung||0|2,5|0|0|2,5|0|0|15|0|0
+4590|160|ねんだい|年代|Zeitalter, Periode, Ära||0|2,5|0|0|2,5|0|0|15|0|0
+4591|160|きじ|記事|Artikel||0|2,5|0|0|2,5|0|0|15|0|0
+4592|160|カーソル||Mauscursor||0|2,5|0|0|2,5|0|0|15|0|0

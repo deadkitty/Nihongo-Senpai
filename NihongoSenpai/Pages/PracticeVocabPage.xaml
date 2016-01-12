@@ -1,0 +1,108 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="NihongoSenpai.Pages.PracticeVocabPage"
+    xmlns:Controls="clr-namespace:NihongoSenpai.Controls"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True" Unloaded="PhoneApplicationPage_Unloaded">
+
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid x:Name="mainGrid">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Backgrounds/Chibi9.png" Stretch="None" AlignmentX="Right" AlignmentY="Bottom">
+                    <ImageBrush.RelativeTransform>
+                        <CompositeTransform ScaleX="1.3" ScaleY="1.3" CenterX="1" CenterY="1"/>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Grid.Background>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="statusPanel" Margin="8" Grid.Row="0" Background="Transparent">
+                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource VocabStatusPanelTextblock}" x:Name="wordsLeftTextblock" Text="{Binding LocalizedResources.WordsLeft, Source={StaticResource LocalizedStrings}}"/>
+                    <TextBlock Style="{StaticResource VocabStatusPanelTextblock}" x:Name="wordsLeftValueTextblock" Text="0"/>
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Width="100">
+                    <TextBlock Style="{StaticResource VocabStatusPanelTextblock}" x:Name="wordsCorrectTextblock" Text="{Binding LocalizedResources.WordsCorrect, Source={StaticResource LocalizedStrings}}"/>
+                    <TextBlock Style="{StaticResource VocabStatusPanelTextblock}" x:Name="wordsCorrectValueTextblock" Text="0"/>
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Width="100">
+                    <TextBlock Style="{StaticResource VocabStatusPanelTextblock}" x:Name="wordsWrongTextblock" Text="{Binding LocalizedResources.WordsWrong, Source={StaticResource LocalizedStrings}}"/>
+                    <TextBlock Style="{StaticResource VocabStatusPanelTextblock}" x:Name="wordsWrongValueTextblock" Text="0"/>
+                </StackPanel>
+            </Grid>
+
+            <ScrollViewer Background="Transparent" Name="pageScrollViewer" Margin="8" Grid.Row="1">
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto" MinHeight="70"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto" MinHeight="100"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" x:Name="descLabel"   Style="{StaticResource VocabStaticTextblock}" Text="{Binding LocalizedResources.Description, Source={StaticResource LocalizedStrings}}"/>
+                    <TextBlock Grid.Row="2" x:Name="translLabel" Style="{StaticResource VocabStaticTextblock}" Text="{Binding LocalizedResources.SearchedWord, Source={StaticResource LocalizedStrings}}"/>
+
+                    <TextBlock Grid.Row="1" x:Name="descriptionTextblock" Style="{StaticResource VocabDescriptionTextblock}" Text="I - test　結婚"/>
+                    <TextBlock Grid.Row="3" x:Name="visibleTextblock"     Style="{StaticResource VocabDynamicTextblock}"     Text="結婚式" FontWeight="Medium"/>
+                    <TextBlock Grid.Row="4" x:Name="hiddenTextblock1"	  Style="{StaticResource VocabDynamicTextblock}"     Text="かわいいですねえ私はまみたすが大好き" Visibility="Collapsed"/>
+                    <TextBlock Grid.Row="5" x:Name="hiddenTextblock2"	  Style="{StaticResource VocabDynamicTextblock}"     Text="süß, nich wahr? ich liebe mami-tasu" Visibility="Collapsed"/>
+                </Grid>
+            </ScrollViewer>
+
+            <Grid x:Name="showButtonGrid" Grid.Row="2" Height="146" Visibility="Visible">
+                <Button x:Name="showButton" Click="showButton_Click" Style="{StaticResource SelectButtonStyle}" VerticalAlignment="Center" Content="{Binding LocalizedResources.Show, Source={StaticResource LocalizedStrings}}"/>
+            </Grid>
+
+            <Grid x:Name="answerButtonsGrid" Grid.Row="2" Visibility="Collapsed">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Button Name="correct1Button" Click="correct1Button_Click" Grid.Row="0" Grid.Column="0" FontSize="13" Style="{StaticResource CorrectButtonStyle}" ContentTemplate="{StaticResource ButtonContent}" Content="{Binding LocalizedResources.Correct, Source={StaticResource LocalizedStrings}}"/>
+                <Button Name="correct2Button" Click="correct2Button_Click" Grid.Row="0" Grid.Column="1" FontSize="13" Style="{StaticResource CorrectButtonStyle}" ContentTemplate="{StaticResource ButtonContent}" Content="{Binding LocalizedResources.CorrectWithHasitate, Source={StaticResource LocalizedStrings}}"/>
+                <Button Name="correct3Button" Click="correct3Button_Click" Grid.Row="0" Grid.Column="2" FontSize="13" Style="{StaticResource CorrectButtonStyle}" ContentTemplate="{StaticResource ButtonContent}" Content="{Binding LocalizedResources.CorrectDifficult, Source={StaticResource LocalizedStrings}}"/>
+                <Button Name="wrong1Button"   Click="wrong1Button_Click"   Grid.Row="1" Grid.Column="0" FontSize="13" Style="{StaticResource WrongButtonStyle}"   ContentTemplate="{StaticResource ButtonContent}" Content="{Binding LocalizedResources.AlmostCorrect, Source={StaticResource LocalizedStrings}}"/>
+                <Button Name="wrong2Button"   Click="wrong2Button_Click"   Grid.Row="1" Grid.Column="1" FontSize="13" Style="{StaticResource WrongButtonStyle}"   ContentTemplate="{StaticResource ButtonContent}" Content="{Binding LocalizedResources.WrongButOk, Source={StaticResource LocalizedStrings}}"/>
+                <Button Name="wrong3Button"   Click="wrong3Button_Click"   Grid.Row="1" Grid.Column="2" FontSize="13" Style="{StaticResource WrongButtonStyle}"   ContentTemplate="{StaticResource ButtonContent}" Content="{Binding LocalizedResources.Forgotten, Source={StaticResource LocalizedStrings}}"/>
+
+            </Grid>
+
+            <Controls:EditWordControl x:Name="editWordsControl" Visibility="Collapsed"/>
+
+        </Grid>
+    </Grid>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Mode="Minimized" Opacity="1" BackgroundColor="White" ForegroundColor="Black">
+            <shell:ApplicationBarIconButton x:Name="editIcon" IconUri="/Assets/AppBar/edit.png" Text="bearbeiten" Click="editIcon_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>
