@@ -101,15 +101,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="LocalizedStrings.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\AppResources.Designer.cs" />
-    <Compile Include="Utilities\AppStreamReader.cs" />
-    <Compile Include="Utilities\AppStreamWriter.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Controls\DetailItem.xaml.cs">
       <DependentUpon>DetailItem.xaml</DependentUpon>
     </Compile>
@@ -119,15 +110,14 @@
     </Compile>
     <Compile Include="Data\Cloze.cs" />
     <Compile Include="Data\DataManager.cs" />
-    <Compile Include="Data\ExportData.cs" />
     <Compile Include="Data\Kanji.cs" />
     <Compile Include="Data\Lesson.cs" />
     <Compile Include="Data\SenpaiDatabase.cs" />
-    <Compile Include="Data\WebObjects\Cloze.cs" />
-    <Compile Include="Data\WebObjects\Kanji.cs" />
-    <Compile Include="Data\WebObjects\Lesson.cs" />
-    <Compile Include="Data\WebObjects\Word.cs" />
     <Compile Include="Data\Word.cs" />
+    <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CreateFlashLessonPage.xaml.cs">
       <DependentUpon>CreateFlashLessonPage.xaml</DependentUpon>
     </Compile>
@@ -137,12 +127,28 @@
     <Compile Include="Pages\CreateVocabLessonPage.xaml.cs">
       <DependentUpon>CreateVocabLessonPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\EditFlashLessonPage.xaml.cs">
+      <DependentUpon>EditFlashLessonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditInsertLessonPage.xaml.cs">
+      <DependentUpon>EditInsertLessonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditVocabLessonPage.xaml.cs">
+      <DependentUpon>EditVocabLessonPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MarketplacePage.xaml.cs">
       <DependentUpon>MarketplacePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\AppResources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -160,7 +166,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\AppResources.resx" />
+    <EmbeddedResource Include="Resources\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -183,36 +192,48 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Controls\DetailItem.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SelectTypeControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\CreateFlashLessonPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\CreateInsertLessonPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\CreateVocabLessonPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditFlashLessonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditInsertLessonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditVocabLessonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\MarketplacePage.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Colors.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -227,9 +248,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Web\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>

@@ -140,9 +140,6 @@
     <Compile Include="Data\IVocabItem.cs" />
     <Compile Include="Data\VocabData.cs" />
     <Compile Include="LocalizedStrings.cs" />
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\EditLessonPage.xaml.cs">
       <DependentUpon>EditLessonPage.xaml</DependentUpon>
     </Compile>
@@ -248,10 +245,6 @@
     <Page Include="Controls\StatisticsItem.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="MainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\EditLessonPage.xaml">
       <Generator>MSBuild:Compile</Generator>

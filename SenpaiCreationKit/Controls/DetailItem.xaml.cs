@@ -1,19 +1,5 @@
 ﻿using SenpaiCreationKit.Data;
-using SenpaiCreationKit.Pages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SenpaiCreationKit.Controls
 {
@@ -35,40 +21,40 @@ namespace SenpaiCreationKit.Controls
         {
             InitializeComponent();
 
-            this.sourceWord = word;
-            this.sourceKanji = null;
-            this.sourceCloze = null;
+            sourceWord  = word;
+            sourceKanji = null;
+            sourceCloze = null;
 
-            wordTextblock.Text = word.ToDetailString();
-            descriptionTextblock.Text = word.ToDescriptionString();
+            mainTextblock.Text = word.ToDetailString();
+            descTextblock.Text = word.ToDescriptionString();
         }
 
         public DetailItem(Kanji kanji)
         {
             InitializeComponent();
 
-            this.sourceKanji = kanji;
-            this.sourceWord = null;
-            this.sourceCloze = null;
+            sourceWord  = null;
+            sourceKanji = kanji;
+            sourceCloze = null;
 
-            wordTextblock.Text = kanji.ToDetailString();
-            descriptionTextblock.Text = kanji.ToExampleString();
+            mainTextblock.Text = kanji.ToDetailString();
+            descTextblock.Text = kanji.ToExampleString();
         }
 
         public DetailItem(Cloze cloze)
         {
             InitializeComponent();
 
-            this.sourceKanji = null;
-            this.sourceWord = null;
-            this.sourceCloze = cloze;
-            
-            wordTextblock.Text = cloze.ToString();
-            descriptionTextblock.Text = cloze.Inserts + "、" + cloze.Hints;
+            sourceKanji = null;
+            sourceWord  = null;
+            sourceCloze = cloze;
+
+            mainTextblock.Text = cloze.ToString();
+            descTextblock.Text = cloze.Inserts + "、" + cloze.Hints;
         }
         public void Update()
         {
-            if(sourceWord != null)
+            if (sourceWord != null)
             {
                 Update(sourceWord);
             }
@@ -84,20 +70,20 @@ namespace SenpaiCreationKit.Controls
 
         public void Update(Word word)
         {
-            wordTextblock.Text = word.ToDetailString();
-            descriptionTextblock.Text = word.ToDescriptionString();
+            mainTextblock.Text = word.ToDetailString();
+            descTextblock.Text = word.ToDescriptionString();
         }
 
         public void Update(Kanji kanji)
         {
-            wordTextblock.Text = kanji.ToDetailString();
-            descriptionTextblock.Text = kanji.ToExampleString();
+            mainTextblock.Text = kanji.ToDetailString();
+            descTextblock.Text = kanji.ToExampleString();
         }
-        
+
         public void Update(Cloze cloze)
         {
-            wordTextblock.Text = cloze.ToString();
-            descriptionTextblock.Text = cloze.Inserts + "、" + cloze.Hints;
+            mainTextblock.Text = cloze.ToString();
+            descTextblock.Text = cloze.Inserts + "、" + cloze.Hints;
         }
     }
 }

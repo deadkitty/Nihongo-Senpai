@@ -4,7 +4,6 @@ using SenpaiCreationKit.Resources;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,25 +19,17 @@ using System.Windows.Shapes;
 
 namespace SenpaiCreationKit.Pages
 {
-    /// <summary>
-    /// Interaktionslogik für CreateFlashLessonPage.xaml
-    /// </summary>
     public partial class CreateFlashLessonPage : Page
     {
         #region Fields
 
-        CultureInfo defaultLanguage;
-        CultureInfo japaneseLanguage;
-        
-        private Lesson lesson = null;
+        private CultureInfo defaultLanguage;
+        private CultureInfo japaneseLanguage;
+
         private List<Kanji> newKanjis = new List<Kanji>();
-        private List<Kanji> kanjisToDelete = new List<Kanji>();
-
+        
         private DetailItem selectedItem = null;
-
-        private String createButtonContent = null;
-        private String cancelButtonContent = null;
-
+        
         #endregion
 
         #region Constructor
@@ -46,98 +37,9 @@ namespace SenpaiCreationKit.Pages
         public CreateFlashLessonPage()
         {
             InitializeComponent();
-            
+
             defaultLanguage = CultureInfo.CurrentCulture;
             japaneseLanguage = CultureInfo.GetCultureInfo("ja-JP");
-            
-            createButtonContent = AppResources.CreateLesson;
-            cancelButtonContent = AppResources.CancelCreation;
-        }
-        
-        public CreateFlashLessonPage(Lesson lesson)
-        {
-            InitializeComponent();
-            
-            defaultLanguage = CultureInfo.CurrentCulture;
-            japaneseLanguage = CultureInfo.GetCultureInfo("ja-JP");
-            
-            createButtonContent = AppResources.EditLesson;
-            cancelButtonContent = AppResources.CancelEdit;
-
-            this.lesson = lesson;
-        }
-
-        #endregion
-        
-        #region Page Initialize/Deinitialize
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            //AddTestLesson();
-
-            if(lesson != null)
-            {
-                AddLesson(lesson);
-                AddTestKanjis();
-            }
-            else
-            {
-                //AddTestLesson();
-            }
-        }
-        
-        private void Page_Unloaded(object sender, RoutedEventArgs e)
-        {
-            
-        }
-        
-        private void AddLesson(Lesson lesson)
-        {
-            lessonNameTextbox.Text = lesson.Name;
-
-            foreach(Kanji kanji in lesson.Kanjis)
-            {
-                kanjisListbox.Items.Add(new DetailItem(kanji));
-            }
-        }
-
-        private void AddTestKanjis()
-        {
-            Kanji[] kanjis = new Kanji[5];
-            
-            kanjis[0] = new Kanji("母|Mutter|ぼ|はは|祖母 - そぼ - Großmutter|-");
-            kanjis[1] = new Kanji("父|Vater|ふ|ちち|祖父 - そふ - Großvater|-");
-            kanjis[2] = new Kanji("女|Frau, weiblich|じょ|おんあ、め|女性 - じょせい - Weiblich|-");
-            kanjis[3] = new Kanji("男|Mann, männlich|だん、なん|おとこ|男性 - だんせい - Männlich|-");
-            kanjis[4] = new Kanji("子|Kind|し、す|こ|子供 - こども - Kind|-");
-            
-            foreach(Kanji kanji in kanjis)
-            {
-                DetailItem item = new DetailItem(kanji);
-
-                kanjisListbox.Items.Add(item);
-                newKanjis.Add(kanji);
-            }
-        }
-
-        private void AddTestLesson()
-        {
-            StreamReader sr = new StreamReader("Resources\\TestLessonFlash.txt");
-            String lessonLine = sr.ReadLine();
-
-            lessonNameTextbox.Text = lessonLine.Split('|')[1];
-
-            String[] lines = sr.ReadToEnd().Split('\n');
-            
-            foreach (String line in lines)
-            {
-                Kanji k = new Kanji(line);
-
-                kanjisListbox.Items.Add(new DetailItem(k));
-                newKanjis.Add(k);
-            }
-
-            sr.Close();
         }
 
         #endregion
@@ -231,73 +133,66 @@ namespace SenpaiCreationKit.Pages
         {
             if (e.Key == Key.Enter)
             {
-                if(kanjisListbox.SelectedItem == null)
+                if (kanjiTextbox.Text == "")
                 {
-                    CreateKanji();
+                    MessageBox.Show(AppResources.KanjiTextboxesCantBeEmpty);
+
+                    kanjiTextbox.Focus();
+                }
+                else if (meaningTextbox.Text == "")
+                {
+                    MessageBox.Show(AppResources.KanjiTextboxesCantBeEmpty);
+
+                    meaningTextbox.Focus();
+                }
+                else if (onyomiTextbox.Text == "")
+                {
+                    MessageBox.Show(AppResources.KanjiTextboxesCantBeEmpty);
+
+                    onyomiTextbox.Focus();
                 }
                 else
                 {
-                    UpdateKanji();
+                    if (kanjisListbox.SelectedItem == null)
+                    {
+                        CreateKanji();
+                    }
+                    else
+                    {
+                        UpdateKanji();
 
-                    selectedItem = null;
-                    kanjisListbox.SelectedItems.Clear();
+                        selectedItem = null;
+                        kanjisListbox.SelectedItems.Clear();
+                    }
+
+                    ClearTextboxes();
+
+                    kanjiTextbox.Focus();
                 }
-
-                ClearTextboxes();
-
-                kanjiTextbox.Focus();
             }
         }
-        
+
         #endregion
 
         #region Button Click
 
         private void createLesson_Click(object sender, RoutedEventArgs e)
         {
-            if(lessonNameTextbox.Text == "")
+            if (lessonNameTextbox.Text == "")
             {
                 MessageBox.Show(AppResources.LessonNameEmpty);
             }
             else
             {
-                if(lesson == null)
-                {
-                    CreateLesson();
-                }
-                else
-                {
-                    UpdateLesson();
-                }
-
-                DataManager.SaveChanges();
+                DataManager.CreateFlashLesson(lessonNameTextbox.Text, newKanjis);
 
                 NavigationService.GoBack();
             }
         }
-        
-        private void CreateLesson()
-        {
-            Lesson newLesson = new Lesson();
-
-            newLesson.Name = lessonNameTextbox.Text;
-            newLesson.Size = newKanjis.Count;
-            newLesson.Type = (int)Lesson.EType.kanji;
-
-            DataManager.CreateFlashLesson(newLesson, newKanjis);
-        }
-
-        private void UpdateLesson()
-        {
-            lesson.Name = lessonNameTextbox.Text;
-            lesson.Size += newKanjis.Count - kanjisToDelete.Count;
-
-            DataManager.UpdateFlashLesson(lesson, newKanjis, kanjisToDelete);
-        }
 
         private void cancelCreation_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show(cancelButtonContent, AppResources.Really, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            if (MessageBox.Show(AppResources.CancelCreation, AppResources.Really, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
                 NavigationService.GoBack();
             }
@@ -305,18 +200,14 @@ namespace SenpaiCreationKit.Pages
 
         private void delete_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show(AppResources.Really, AppResources.DeleteKanjis, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            if (MessageBox.Show(AppResources.Really, AppResources.DeleteKanjis, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
-                while(kanjisListbox.SelectedItems.Count > 0)
+                while (kanjisListbox.SelectedItems.Count > 0)
                 {
                     DetailItem item = kanjisListbox.SelectedItems[0] as DetailItem;
-                    
+
+                    newKanjis.Remove(item.sourceKanji);
                     kanjisListbox.Items.Remove(item);
-                    
-                    if(!newKanjis.Remove(item.sourceKanji))
-                    {
-                        kanjisToDelete.Add(item.sourceKanji);
-                    }
                 }
             }
         }
@@ -325,14 +216,14 @@ namespace SenpaiCreationKit.Pages
         {
             kanjisListbox.SelectAll();
         }
-        
+
         #endregion
 
         #region Others
-        
+
         private void kanjisListbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(kanjisListbox.SelectedItems.Count > 0)
+            if (kanjisListbox.SelectedItems.Count > 0)
             {
                 selectedItem = kanjisListbox.SelectedItems[0] as DetailItem;
                 FillTextboxes(selectedItem.sourceKanji);
@@ -351,19 +242,18 @@ namespace SenpaiCreationKit.Pages
         {
             Kanji kanji = new Kanji();
 
-            kanji.Sign   = kanjiTextbox  .Text;
+            kanji.Sign    = kanjiTextbox  .Text;
             kanji.Meaning = meaningTextbox.Text;
             kanji.Onyomi  = onyomiTextbox .Text;
             kanji.Kunyomi = kunyomiTextbox.Text;
-            
+
             StringBuilder sb = new StringBuilder();
-            
+
             sb.Append(exampleTextbox1.Text);
             sb.Append(" - ");
             sb.Append(exampleTextbox2.Text);
             sb.Append(" - ");
             sb.Append(exampleTextbox3.Text);
-            sb.Append(" - ");
 
             kanji.Example = sb.ToString();
 
@@ -372,7 +262,7 @@ namespace SenpaiCreationKit.Pages
             DetailItem item = new DetailItem(kanji);
             kanjisListbox.Items.Add(item);
         }
-        
+
         private void UpdateKanji()
         {
             selectedItem.sourceKanji.Sign    = kanjiTextbox  .Text;
@@ -381,13 +271,12 @@ namespace SenpaiCreationKit.Pages
             selectedItem.sourceKanji.Kunyomi = kunyomiTextbox.Text;
 
             StringBuilder sb = new StringBuilder();
-            
+
             sb.Append(exampleTextbox1.Text);
             sb.Append(" - ");
             sb.Append(exampleTextbox2.Text);
             sb.Append(" - ");
             sb.Append(exampleTextbox3.Text);
-            sb.Append(" - ");
 
             selectedItem.sourceKanji.Example = sb.ToString();
 
@@ -400,9 +289,9 @@ namespace SenpaiCreationKit.Pages
             meaningTextbox.Text = kanji.Meaning;
             onyomiTextbox .Text = kanji.Onyomi;
             kunyomiTextbox.Text = kanji.Kunyomi;
-            
+
             String[] examples = kanji.Example.Split('-');
-            
+
             exampleTextbox1.Text = examples[0].Trim();
             exampleTextbox2.Text = examples[1].Trim();
             exampleTextbox3.Text = examples[2].Trim();
@@ -410,10 +299,10 @@ namespace SenpaiCreationKit.Pages
 
         private void ClearTextboxes()
         {
-            kanjiTextbox.Clear();
-            meaningTextbox.Clear();
-            onyomiTextbox.Clear();
-            kunyomiTextbox.Clear();
+            kanjiTextbox   .Clear();
+            meaningTextbox .Clear();
+            onyomiTextbox  .Clear();
+            kunyomiTextbox .Clear();
             exampleTextbox1.Clear();
             exampleTextbox2.Clear();
             exampleTextbox3.Clear();

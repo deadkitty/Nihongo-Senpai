@@ -16,7 +16,7 @@ namespace NihongoSenpai.Data.Database
     {
         #region Fields
 
-        [Column(IsPrimaryKey = true, IsDbGenerated = true, DbType = "INT NOT NULL Identity", CanBeNull = false, AutoSync = AutoSync.OnInsert)]
+        [Column(IsPrimaryKey = true, IsDbGenerated = false, CanBeNull = false, AutoSync = AutoSync.Never)]
         public int id;
 
         [Column]
@@ -81,8 +81,11 @@ namespace NihongoSenpai.Data.Database
             Fill(other);
         }
 
-        public Kanji(String properties)
+        public Kanji(String properties, Lesson lesson)
         {
+            Lesson = lesson;
+            lessonID = lesson.id;
+
             Fill(properties);
         }
 
@@ -98,16 +101,14 @@ namespace NihongoSenpai.Data.Database
         /// <summary>
         /// <para>Creates a String to use for export as txt file.</para>
         /// <para>Export Pattern:</para>
-        /// <para>id|lessonId|kanji|meaning|onyomi|kunyomi|example|strokeOrder|efactor|lastRound|nextRound|timestamp</para>
-        /// <para>Length = 12</para>
+        /// <para>id|kanji|meaning|onyomi|kunyomi|example|strokeOrder|efactor|lastRound|nextRound|timestamp</para>
+        /// <para>Length = 11</para>
         /// </summary>
         public String ToExportString()
         {
             StringBuilder sb = new StringBuilder();
 
             sb.Append(id);
-            sb.Append("|");
-            sb.Append(lessonID);
             sb.Append("|");
             sb.Append(kanji);
             sb.Append("|");
@@ -139,28 +140,23 @@ namespace NihongoSenpai.Data.Database
         public void Fill(String properties)
         {
             String[] parts = properties.Split('|');
-            
-            if(parts.Length == 12)
+
+            for (int i = 0; i < parts.Length; ++i)
             {
-                kanji       = parts[2];
-                meaning     = parts[3];
-                onyomi      = parts[4];
-                kunyomi     = parts[5];
-                example     = parts[6];
-                strokeOrder = parts[7];
-                eFactor     = Convert.ToSingle(parts[8], CultureInfo.InvariantCulture);
-                lastRound   = Convert.ToInt32 (parts[9]);
-                nextRound   = Convert.ToInt32 (parts[10]);
-                timestamp   = Convert.ToInt32 (parts[11]);
-            }
-            else if(parts.Length == 6)
-            {
-                kanji       = parts[0];
-                meaning     = parts[1];
-                onyomi      = parts[2];
-                kunyomi     = parts[3];
-                example     = parts[4];
-                strokeOrder = parts[5];
+                switch (i)
+                {
+                    case  0: id          = Convert.ToInt32 (parts[i]); break;
+                    case  1: kanji       =                  parts[i] ; break;
+                    case  2: meaning     =                  parts[i] ; break;
+                    case  3: onyomi      =                  parts[i] ; break;
+                    case  4: kunyomi     =                  parts[i] ; break;
+                    case  5: example     =                  parts[i] ; break;
+                    case  6: strokeOrder =                  parts[i] ; break;
+                    case  7: eFactor     = Convert.ToSingle(parts[i]); break;
+                    case  8: lastRound   = Convert.ToInt32 (parts[i]); break;
+                    case  9: nextRound   = Convert.ToInt32 (parts[i]); break;
+                    case 10: timestamp   = Convert.ToInt32 (parts[i]); break;
+                }
             }
         }
 

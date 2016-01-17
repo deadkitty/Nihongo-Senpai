@@ -199,12 +199,32 @@ namespace NihongoSenpai.Pages
                     IRandomAccessStream fileStream = await file.OpenAsync(FileAccessMode.Read);
 
                     DataManager.ConnectToDatabase();
-                    String updateStatus = DataManager.ImportFromFile(fileStream.AsStream());
+
+                    List<Lesson> lessons;
+
+                    int kanjiRound;
+                    int vocabRound;
+
+                    String importStatus = DataManager.ImportFromFile(fileStream.AsStream(), out lessons, out vocabRound, out kanjiRound);
+
+                    if(MessageBox.Show(importStatus, "Import", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                    {
+                        String updateStatus = DataManager.UpdateDatabase(lessons);
+
+                        AppSettings.VocabRound = vocabRound;
+                        AppSettings.KanjiRound = kanjiRound;
+
+                        AppSettings.SaveSettings();
+
+                        MessageBox.Show(updateStatus);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Import Abgebrochen");
+                    }
                     DataManager.CloseConnection();
 
                     fileStream.Dispose();
-
-                    MessageBox.Show(updateStatus);
                 }
             }
             //Add New Content

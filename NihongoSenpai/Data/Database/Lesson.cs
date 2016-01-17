@@ -28,7 +28,7 @@ namespace NihongoSenpai.Data.Database
                 
         #region Fields
 
-        [Column(IsPrimaryKey = true, IsDbGenerated = true, DbType = "INT NOT NULL Identity", CanBeNull = false, AutoSync = AutoSync.OnInsert)]
+        [Column(IsPrimaryKey = true, IsDbGenerated = false, CanBeNull = false, AutoSync = AutoSync.Never)]
         public int id;
 
         [Column]
@@ -127,7 +127,7 @@ namespace NihongoSenpai.Data.Database
             sb.Append(type);
             sb.Append("|");
             sb.Append(size);
-            
+
             return sb.ToString();
         }
         
@@ -138,19 +138,11 @@ namespace NihongoSenpai.Data.Database
         public void Fill(String properties)
         {
             String[] parts = properties.Split('|');
-            
-            if(parts.Length == 4)
-            {
-                name = parts[1];
-                type = Convert.ToInt32(parts[2]);
-                size = Convert.ToInt32(parts[3]);
-            }
-            else
-            {
-                name = parts[0];
-                type = Convert.ToInt32(parts[1]);
-                size = Convert.ToInt32(parts[2]);
-            }
+
+            id   = Convert.ToInt32(parts[0]);
+            name = parts[1];
+            type = Convert.ToInt32(parts[2]);
+            size = Convert.ToInt32(parts[3]);
         }
 
         public void Fill(Lesson other)

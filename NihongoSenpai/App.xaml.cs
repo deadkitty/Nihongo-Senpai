@@ -55,10 +55,12 @@ namespace NihongoSenpai
             
             if (AppSettings.FirstStart)
             {
+                DataManager.ConnectToDatabase();
                 DataManager.CreateDatabase();
+                DataManager.CloseConnection();
             }
 
-            #region Dataset Changes (only use on time and then comment it out again or write something new)
+            #region Dataset Changes (only use one time and then comment it out again or write something new)
 
             //DataManager.ConnectToDatabase();
 

@@ -1,5 +1,4 @@
-﻿using SenpaiCreationKit.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,11 +21,6 @@ namespace SenpaiCreationKit.Pages
     public partial class CreateInsertLessonPage : Page
     {
         public CreateInsertLessonPage()
-        {
-            InitializeComponent();
-        }
-
-        public CreateInsertLessonPage(Lesson lesson)
         {
             InitializeComponent();
         }

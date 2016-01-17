@@ -15,7 +15,7 @@ namespace NihongoSenpai.Data.Database
     {
         #region Fields
 
-        [Column(IsPrimaryKey = true, IsDbGenerated = true, DbType = "INT NOT NULL Identity", CanBeNull = false, AutoSync = AutoSync.OnInsert)]
+        [Column(IsPrimaryKey = true, IsDbGenerated = false, CanBeNull = false, AutoSync = AutoSync.Never)]
         public int id;
 
         [Column]
@@ -56,8 +56,11 @@ namespace NihongoSenpai.Data.Database
             Fill(other);
         }
 
-        public Cloze(String properties)
+        public Cloze(String properties, Lesson lesson)
         {
+            Lesson = lesson;
+            lessonID = lesson.id;
+
             Fill(properties);
         }
 
@@ -73,15 +76,14 @@ namespace NihongoSenpai.Data.Database
         /// <summary>
         /// <para>Creates a String to use for export as txt file.</para>
         /// <para>Export Pattern:</para>
-        /// <para>id|lessonID|text|insertText|hintText</para>
+        /// <para>id|text|insertText|hintText</para>
+        /// <para>Lenght = 4</para>
         /// </summary>
         public String ToExportString()
         {
             StringBuilder sb = new StringBuilder();
 
             sb.Append(id);
-            sb.Append("|");
-            sb.Append(lessonID);
             sb.Append("|");
             sb.Append(text);
             sb.Append("|");
@@ -99,20 +101,11 @@ namespace NihongoSenpai.Data.Database
         public void Fill(String properties)
         {
             String[] parts = properties.Split('|');
-            
-            //from export string
-            if(parts.Length == 5)
-            {
-                text    = parts[2];
-                inserts = parts[3];
-                hints   = parts[4];
-            }
-            else //from add new string
-            {
-                text    = parts[0];
-                inserts = parts[1];
-                hints   = parts[2];
-            }
+
+            id      = Convert.ToInt32(parts[0]);
+            text    = parts[1];
+            inserts = parts[2];
+            hints   = parts[3];
         }
 
         public void Fill(Cloze other)

@@ -19,7 +19,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
+
         <ListBox x:Name="typesListbox" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource ListboxStyle}"/>
 
         <Button Grid.Row="1" Grid.Column="0" x:Name="select" Style="{StaticResource ActionButton}" Content="{Binding Resources.SetType, Source={StaticResource Strings}}" Background="{StaticResource ConfirmButtonColor}" Click="select_Click"/>

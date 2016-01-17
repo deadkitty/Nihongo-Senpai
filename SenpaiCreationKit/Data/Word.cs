@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Linq;
 using System.Data.Linq.Mapping;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SenpaiCreationKit.Data
 {
@@ -49,12 +52,17 @@ namespace SenpaiCreationKit.Data
         [Column(IsPrimaryKey = true, IsDbGenerated = true, DbType = "INT NOT NULL Identity", CanBeNull = false, AutoSync = AutoSync.OnInsert)]
         public int id { get; set; }
 
-        [Column] public String Kana { get; set; }
-        [Column] public String Kanji { get; set; }
-        [Column] public String Translation { get; set; }
-        [Column] public String Description { get; set; }
+        [Column]
+        public String Kana { get; set; }
+        [Column]
+        public String Kanji { get; set; }
+        [Column]
+        public String Translation { get; set; }
+        [Column]
+        public String Description { get; set; }
 
-        [Column] public int Type { get; set; }
+        [Column]
+        public int Type { get; set; }
 
         [Column]
         private int lessonID { get; set; }
@@ -71,12 +79,6 @@ namespace SenpaiCreationKit.Data
             set { lesson.Entity = value; }
         }
 
-        //public EType Type
-        //{
-        //    get { return (EType)type; }
-        //    set { type = (int)value; }
-        //}
-
         #endregion
 
         #region Constructor
@@ -86,11 +88,6 @@ namespace SenpaiCreationKit.Data
 
         }
 
-        public Word(Word other)
-        {
-            Fill(other);
-        }
-
         public Word(String properties)
         {
             Fill(properties);
@@ -98,7 +95,7 @@ namespace SenpaiCreationKit.Data
 
         public Word(String properties, Lesson lesson)
         {
-            this.Lesson = lesson;
+            Lesson = lesson;
             Fill(properties);
         }
 
@@ -147,7 +144,7 @@ namespace SenpaiCreationKit.Data
             sb.Append(Kana);
             sb.Append(" - ");
             sb.Append(Translation);
-            
+
             return sb.ToString();
         }
 
@@ -172,69 +169,17 @@ namespace SenpaiCreationKit.Data
         }
 
         /// <summary>
-        /// checks if the kanji part is null or not and returns 
-        /// either the kanji or the kana part
-        /// </summary>
-        public string ToJString()
-        {
-            return Kanji == "" ? Kana : Kanji;
-        }
-
-        /// <summary>
-        /// <para>Creates a String to use for export</para>
+        /// <para>Creates a String to use for .nya-file export</para>
         /// <para>Export Pattern:</para>
-        /// <para>id|lessonId|kana|kanji|translation|description|type|eFactorTransl|repetitionTransl|nextIntervTransl|eFactorJap|repetitionJap|nextIntervJap|showFlags|timeStampTransl|timeStampJap</para>
-        /// <para>Length = 16</para>
-        /// </summary>
-        //public String ToExportString()
-        //{
-        //    StringBuilder sb = new StringBuilder();
-            
-        //    sb.Append(id);
-        //    sb.Append("|");
-        //    sb.Append(lessonID);
-        //    sb.Append("|");
-        //    sb.Append(kana);
-        //    sb.Append("|");
-        //    sb.Append(kanji);
-        //    sb.Append("|");
-        //    sb.Append(translation);
-        //    sb.Append("|");
-        //    sb.Append(description);
-        //    sb.Append("|");
-        //    sb.Append(type);
-        //    sb.Append("|");
-        //    sb.Append(eFactorTranslation);
-        //    sb.Append("|");
-        //    sb.Append(repetitionTranslation);
-        //    sb.Append("|");
-        //    sb.Append(nextIntervalTranslation);
-        //    sb.Append("|");
-        //    sb.Append(eFactorJapanese);
-        //    sb.Append("|");
-        //    sb.Append(repetitionJapanese);
-        //    sb.Append("|");
-        //    sb.Append(nextIntervalJapanese);
-        //    sb.Append("|");
-        //    sb.Append(showFlags);
-        //    sb.Append("|");
-        //    sb.Append(timeStampTransl);
-        //    sb.Append("|");
-        //    sb.Append(timeStampJapanese);
-
-        //    return sb.ToString();
-        //}
-        
-        /// <summary>
-        /// <para>Creates a String to use for export without id and supermemo related stuff</para>
-        /// <para>Export Pattern:</para>
-        /// <para>kana|kanji|translation|description|type</para>
-        /// <para>Length = 5</para>
+        /// <para>id|kana|kanji|translation|description|type</para>
+        /// <para>Length = 6</para>
         /// </summary>
         public String ToCreateNewString()
         {
             StringBuilder sb = new StringBuilder();
-            
+
+            sb.Append(id);
+            sb.Append("|");
             sb.Append(Kana);
             sb.Append("|");
             sb.Append(Kanji);
@@ -244,10 +189,13 @@ namespace SenpaiCreationKit.Data
             sb.Append(Description);
             sb.Append("|");
             sb.Append(Type);
-            
+
             return sb.ToString();
         }
-        
+
+        #endregion
+
+        #region Util
 
         /// <summary>
         /// returns a type string by the given type
@@ -257,49 +205,31 @@ namespace SenpaiCreationKit.Data
         {
             switch (type)
             {
-                case Word.EType.noun       : return "Nomen";
-                case Word.EType.verb1      : return "う-Verb";
-                case Word.EType.verb2      : return "る-Verb";
-                case Word.EType.verb3      : return "Irreguläres Verb";
-                case Word.EType.iAdjective : return "い-Adj";
+                case Word.EType.noun: return "Nomen";
+                case Word.EType.verb1: return "う-Verb";
+                case Word.EType.verb2: return "る-Verb";
+                case Word.EType.verb3: return "する-Verb";
+                case Word.EType.iAdjective: return "い-Adj";
                 case Word.EType.naAdjective: return "な-Adj";
-                case Word.EType.adverb     : return "Adverb";
-                case Word.EType.particle   : return "Partikel";
-                case Word.EType.other      : return returnOther ? "Sonstige" : "";
-                case Word.EType.prefix     : return "Präfix";
-                case Word.EType.suffix     : return "Suffix";
-                case Word.EType.phrase     : return "Phrase";
-                default                    : return "";
+                case Word.EType.adverb: return "Adverb";
+                case Word.EType.particle: return "Partikel";
+                case Word.EType.other: return returnOther ? "Sonstige" : "";
+                case Word.EType.prefix: return "Präfix";
+                case Word.EType.suffix: return "Suffix";
+                case Word.EType.phrase: return "Phrase";
+                default: return "";
             }
         }
-
-        #endregion
-
-        #region Util
 
         public void Fill(String properties)
         {
             String[] parts = properties.Split('|');
 
-            //from update word
-            Kana = parts[2];
-            Kanji = parts[3];
-            Translation = parts[4];
-            Description = parts[5];
-            Type = Convert.ToInt32(parts[6]);
-        }
-
-        public void Fill(Word other)
-        {
-            id = other.id;
-            lessonID = other.lessonID;
-            Lesson = other.Lesson;
-
-            Kana = other.Kana;
-            Kanji = other.Kanji;
-            Translation = other.Translation;
-            Description = other.Description;
-            Type = other.Type;
+            Kana        = parts[1];
+            Kanji       = parts[2];
+            Translation = parts[3];
+            Description = parts[4];
+            Type        = Convert.ToInt32(parts[5]);
         }
 
         #endregion

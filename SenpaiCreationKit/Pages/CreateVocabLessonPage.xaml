@@ -9,7 +9,8 @@
       Width="{StaticResource AppWidth}"
       Height="{StaticResource AppHeight}"
 	  Background="{StaticResource AppBackground}"
-      Loaded="Page_Loaded" Unloaded="Page_Unloaded">
+      Loaded="Page_Loaded">
+
 
     <Grid x:Name="layoutRoot">
         <Grid.ColumnDefinitions>
@@ -45,7 +46,7 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <!--#8BA4FF04 -->
+
                 <Button Grid.Row="0" x:Name="createLesson"   Style="{StaticResource ActionButton}" Content="{Binding Resources.CreateLesson, Source={StaticResource Strings}}" Background="{StaticResource ConfirmButtonColor}" Click="createLesson_Click"/>
                 <Button Grid.Row="1" x:Name="cancelCreation" Style="{StaticResource ActionButton}" Content="{Binding Resources.CancelCreation, Source={StaticResource Strings}}" Background="{StaticResource CancelButtonColor}" Click="cancelCreation_Click"/>
 

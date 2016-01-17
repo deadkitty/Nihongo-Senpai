@@ -4,13 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d">
-    
+
     <Grid x:Name="LayoutRoot">
         <StackPanel Margin="10,0,10,10" >
 
-            <TextBlock x:Name="wordTextblock"        Style="{StaticResource VocabItemTextblock}">素敵 - すてき - wunderbar, toll, schön</TextBlock>
-            <TextBlock x:Name="descriptionTextblock" Style="{StaticResource DescriptionTextblock}">な-Adjektiv</TextBlock>
-            
+            <TextBlock x:Name="mainTextblock"        Style="{StaticResource VocabItemTextblock}">素敵 - すてき - wunderbar, toll, schön</TextBlock>
+            <TextBlock x:Name="descTextblock" Style="{StaticResource DescriptionTextblock}">な-Adjektiv</TextBlock>
+
         </StackPanel>
     </Grid>
 </UserControl>

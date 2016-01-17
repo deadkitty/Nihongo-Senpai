@@ -4,7 +4,6 @@ using SenpaiCreationKit.Resources;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,24 +19,16 @@ using System.Windows.Shapes;
 
 namespace SenpaiCreationKit.Pages
 {
-    /// <summary>
-    /// Interaktionslogik für CreateVocabLessonPage.xaml
-    /// </summary>
     public partial class CreateVocabLessonPage : Page, IPageUpdater
     {
         #region Fields
 
         private CultureInfo defaultLanguage;
         private CultureInfo japaneseLanguage;
-        
-        private Lesson lesson = null;
+
         private List<Word> newWords = new List<Word>();
-        private List<Word> wordsToDelete = new List<Word>();
 
         private DetailItem selectedItem = null;
-
-        private String createButtonContent = null;
-        private String cancelButtonContent = null;
 
         #endregion
 
@@ -46,112 +37,25 @@ namespace SenpaiCreationKit.Pages
         public CreateVocabLessonPage()
         {
             InitializeComponent();
-            
+
             defaultLanguage = CultureInfo.CurrentCulture;
             japaneseLanguage = CultureInfo.GetCultureInfo("ja-JP");
 
             selectTypeCtrl.pageUpdater = this;
-            
-            createButtonContent = AppResources.CreateLesson;
-            cancelButtonContent = AppResources.CancelCreation;
-        }
-        
-        public CreateVocabLessonPage(Lesson lesson)
-        {
-            InitializeComponent();
-            
-            defaultLanguage = CultureInfo.CurrentCulture;
-            japaneseLanguage = CultureInfo.GetCultureInfo("ja-JP");
-
-            selectTypeCtrl.pageUpdater = this;
-
-            this.lesson = lesson;
-            createButtonContent = AppResources.EditLesson;
-            cancelButtonContent = AppResources.CancelEdit;
-
-            createLesson.Content = createButtonContent;
-            cancelCreation.Content = cancelButtonContent;
         }
 
         #endregion
 
-        #region Page Initialize/Deinitialize
-        
+        #region Initialize
+
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            typeComboBox.Items.Add("Alle");
+            typeComboBox.Items.Add(AppResources.All);
 
-            for(int i = 0; i < (int)Word.EType.count; ++i)
+            for (int i = 0; i < (int)Word.EType.count; ++i)
             {
                 typeComboBox.Items.Add(Word.GetTypeString((Word.EType)i, true));
             }
-
-            if(lesson != null)
-            {
-                AddLesson(lesson);
-                //AddTestWords();
-            }
-            else
-            {
-                //AddTestLesson();
-            }
-        }
-        
-        private void Page_Unloaded(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void AddLesson(Lesson lesson)
-        {
-            lessonNameTextbox.Text = lesson.Name;
-
-            foreach(Word word in lesson.Words)
-            {
-                wordsListbox.Items.Add(new DetailItem(word));
-            }
-        }
-
-        private void AddTestLesson()
-        {
-            StreamReader sr = new StreamReader("Resources\\TestLesson.txt");
-            String lessonLine = sr.ReadLine();
-
-            lessonNameTextbox.Text = lessonLine.Split('|')[1];
-
-            String[] lines = sr.ReadToEnd().Split('\n');
-            
-            foreach (String line in lines)
-            {
-                Word w = new Word(line);
-
-                //w.Type = Word.EType.other;
-
-                wordsListbox.Items.Add(new DetailItem(w));
-                newWords.Add(w);
-            }
-
-            sr.Close();
-        }
-
-        private void AddTestWords()
-        {
-            Word[] words = new Word[5];
-            
-            words[0] = new Word("かわいい|可愛い|süüß :3||0");
-            words[1] = new Word("かっこいい||cool||0");
-            words[2] = new Word("あたらしい|新しい|neu||0");
-            words[3] = new Word("はい||ja||0");
-            words[4] = new Word("いいえ||nöö||0");
-            
-            foreach(Word word in words)
-            {
-                DetailItem item = new DetailItem(word);
-
-                wordsListbox.Items.Add(item);
-                newWords.Add(word);
-            }
-
         }
 
         #endregion
@@ -207,78 +111,65 @@ namespace SenpaiCreationKit.Pages
         {
             if (e.Key == Key.Enter)
             {
-                if(wordsListbox.SelectedItem == null)
+                if (kanaTextbox.Text == "")
                 {
-                    CreateWord();
+                    MessageBox.Show(AppResources.VocabTextboxesCantBeEmpty);
+
+                    kanaTextbox.Focus();
+                }
+                else if (translationTextbox.Text == "")
+                {
+                    MessageBox.Show(AppResources.VocabTextboxesCantBeEmpty);
+
+                    translationTextbox.Focus();
                 }
                 else
                 {
-                    UpdateWord();
+                    if (wordsListbox.SelectedItem == null)
+                    {
+                        CreateWord();
+                    }
+                    else
+                    {
+                        UpdateWord();
 
-                    selectedItem = null;
-                    wordsListbox.SelectedItems.Clear();
+                        selectedItem = null;
+                        wordsListbox.SelectedItems.Clear();
+                    }
+
+                    ClearTextboxes();
+
+                    kanaTextbox.Focus();
                 }
-
-                ClearTextboxes();
-                
-                kanaTextbox.Focus();
             }
         }
-        
+
         #endregion
 
         #region Button Click
 
         private void createLesson_Click(object sender, RoutedEventArgs e)
         {
-            if(lessonNameTextbox.Text == "")
+            if (lessonNameTextbox.Text == "")
             {
                 MessageBox.Show(AppResources.LessonNameEmpty);
             }
             else
             {
-                if(lesson == null)
-                {
-                    CreateLesson();
-                }
-                else
-                {
-                    UpdateLesson();
-                }
-
-                DataManager.SaveChanges();
+                DataManager.CreateVocabLesson(lessonNameTextbox.Text, newWords);
 
                 NavigationService.GoBack();
             }
-        }
-
-        private void CreateLesson()
-        {
-            Lesson newLesson = new Lesson();
-
-            newLesson.Name = lessonNameTextbox.Text;
-            newLesson.Size = newWords.Count;
-            newLesson.Type = (int)Lesson.EType.vocab;
-
-            DataManager.CreateVocabLesson(newLesson, newWords);
-        }
-
-        private void UpdateLesson()
-        {
-            lesson.Name = lessonNameTextbox.Text;
-            lesson.Size += newWords.Count - wordsToDelete.Count;
-
-            DataManager.UpdateVocabLesson(lesson, newWords, wordsToDelete);
         }
 
         private void cancelCreation_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show(cancelButtonContent, AppResources.Really, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            if (MessageBox.Show(AppResources.CancelEdit, AppResources.Really, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
                 NavigationService.GoBack();
             }
         }
-        
+
         private void chooseAll_Click(object sender, RoutedEventArgs e)
         {
             wordsListbox.SelectAll();
@@ -286,21 +177,15 @@ namespace SenpaiCreationKit.Pages
 
         private void delete_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show(AppResources.Really, AppResources.DeleteWords, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            if (MessageBox.Show(AppResources.Really, AppResources.DeleteWords, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
-                while(wordsListbox.SelectedItems.Count > 0)
+                while (wordsListbox.SelectedItems.Count > 0)
                 {
                     DetailItem item = wordsListbox.SelectedItems[0] as DetailItem;
-                    
+
+                    newWords.Remove(item.sourceWord);
                     wordsListbox.Items.Remove(item);
-
-                    if(!newWords.Remove(item.sourceWord))
-                    {
-                        wordsToDelete.Add(item.sourceWord);
-                    }
                 }
-
-                //TypeSelectionChanged();
             }
         }
 
@@ -308,7 +193,7 @@ namespace SenpaiCreationKit.Pages
         {
             selectTypeCtrl.Visibility = System.Windows.Visibility.Visible;
 
-            foreach(DetailItem item in wordsListbox.SelectedItems)
+            foreach (DetailItem item in wordsListbox.SelectedItems)
             {
                 selectTypeCtrl.selectedWords.Add(item.sourceWord);
             }
@@ -328,19 +213,11 @@ namespace SenpaiCreationKit.Pages
         private void TypeSelectionChanged()
         {
             wordsListbox.Items.Clear();
-            
-            //if all is selected, add all
-            if(typeComboBox.SelectedIndex == 0)
-            {
-                if(lesson != null)
-                {
-                    foreach(Word word in lesson.Words)
-                    {
-                        wordsListbox.Items.Add(new DetailItem(word));
-                    }
-                }
 
-                foreach(Word word in newWords)
+            //if all is selected, add all
+            if (typeComboBox.SelectedIndex == 0)
+            {
+                foreach (Word word in newWords)
                 {
                     wordsListbox.Items.Add(new DetailItem(word));
                 }
@@ -349,30 +226,19 @@ namespace SenpaiCreationKit.Pages
             {
                 int selectedType = typeComboBox.SelectedIndex - 1;
 
-                if(lesson != null)
+                foreach (Word word in newWords)
                 {
-                    foreach(Word word in lesson.Words)
-                    {
-                        if(word.Type == selectedType)
-                        {
-                            wordsListbox.Items.Add(new DetailItem(word));
-                        }
-                    }
-                }
-
-                foreach(Word word in newWords)
-                {
-                    if(word.Type == selectedType)
+                    if (word.Type == selectedType)
                     {
                         wordsListbox.Items.Add(new DetailItem(word));
                     }
                 }
             }
         }
-        
+
         private void wordsListbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(wordsListbox.SelectedItems.Count > 0)
+            if (wordsListbox.SelectedItems.Count > 0)
             {
                 selectedItem = wordsListbox.SelectedItems[0] as DetailItem;
                 FillTextboxes(selectedItem.sourceWord);
@@ -385,38 +251,43 @@ namespace SenpaiCreationKit.Pages
 
         #endregion
 
-        #region Helper
-        
+        #region IPageUpdater
+
         public void UpdatePage()
         {
             TypeSelectionChanged();
         }
 
+        #endregion
+
+        #region Helper
+
         private void CreateWord()
         {
             Word word = new Word();
 
-            word.Kana = kanaTextbox.Text;
-            word.Kanji = kanjiTextbox.Text;
+            word.Kana        = kanaTextbox       .Text;
+            word.Kanji       = kanjiTextbox      .Text;
             word.Translation = translationTextbox.Text;
             word.Description = descriptionTextbox.Text;
+            word.Type        = (int)Word.EType.other;
 
             newWords.Add(word);
 
             //if all is selected or other, than show word in the listbox
-            if(typeComboBox.SelectedIndex == 0 ||
-               typeComboBox.SelectedIndex - 1 == (int)Word.EType.other)
+            if (typeComboBox.SelectedIndex     == 0 ||
+                typeComboBox.SelectedIndex - 1 == (int)Word.EType.other)
             {
                 DetailItem item = new DetailItem(word);
-                
+
                 wordsListbox.Items.Add(item);
             }
         }
 
         private void UpdateWord()
         {
-            selectedItem.sourceWord.Kana = kanaTextbox.Text;
-            selectedItem.sourceWord.Kanji = kanjiTextbox.Text;
+            selectedItem.sourceWord.Kana        = kanaTextbox       .Text;
+            selectedItem.sourceWord.Kanji       = kanjiTextbox      .Text;
             selectedItem.sourceWord.Translation = translationTextbox.Text;
             selectedItem.sourceWord.Description = descriptionTextbox.Text;
 
@@ -425,16 +296,16 @@ namespace SenpaiCreationKit.Pages
 
         private void FillTextboxes(Word word)
         {
-            kanaTextbox.Text = word.Kana;
-            kanjiTextbox.Text = word.Kanji;
+            kanaTextbox       .Text = word.Kana;
+            kanjiTextbox      .Text = word.Kanji;
             translationTextbox.Text = word.Translation;
             descriptionTextbox.Text = word.Description;
         }
 
         private void ClearTextboxes()
         {
-            kanaTextbox.Clear();
-            kanjiTextbox.Clear();
+            kanaTextbox       .Clear();
+            kanjiTextbox      .Clear();
             translationTextbox.Clear();
             descriptionTextbox.Clear();
         }

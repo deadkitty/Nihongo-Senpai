@@ -121,10 +121,10 @@
     <value>Senpai Creation Kit ツ</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Abbrechen</value>
+    <value>abbrechen</value>
   </data>
   <data name="CancelCreation" xml:space="preserve">
-    <value>Erstellen abbrechen</value>
+    <value>erstellen abbrechen</value>
   </data>
   <data name="ChooseAll" xml:space="preserve">
     <value>Alle auswählen</value>
@@ -148,7 +148,7 @@
     <value>Data Source=SenpaiDatabase.sdf</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Löschen</value>
+    <value>löschen</value>
   </data>
   <data name="DeleteKanjis" xml:space="preserve">
     <value>Kanjis löschen</value>
@@ -226,7 +226,7 @@
     <value>Lektionen hochladen</value>
   </data>
   <data name="FilterLessons" xml:space="preserve">
-    <value>Lektionen Filtern</value>
+    <value>Lektionen filtern</value>
   </data>
   <data name="SearchLessons" xml:space="preserve">
     <value>Lektionen Suchen</value>
@@ -244,6 +244,15 @@
     <value>Lektionsname darf nicht leer sein!</value>
   </data>
   <data name="CancelEdit" xml:space="preserve">
-    <value>Bearbeiten abbrechen</value>
+    <value>bearbeiten abbrechen</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>alle</value>
+  </data>
+  <data name="KanjiTextboxesCantBeEmpty" xml:space="preserve">
+    <value>Kanji-, Bedeutung- und Onyomi-Textboxen dürfen nicht leer sein!</value>
+  </data>
+  <data name="VocabTextboxesCantBeEmpty" xml:space="preserve">
+    <value>Kana- und Übersetztung-Textboxen dürfen nicht leer sein!</value>
   </data>
 </root>

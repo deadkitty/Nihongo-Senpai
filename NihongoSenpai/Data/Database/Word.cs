@@ -51,7 +51,7 @@ namespace NihongoSenpai.Data.Database
 
         #region Fields
         
-        [Column(IsPrimaryKey = true, IsDbGenerated = true, DbType = "INT NOT NULL Identity", CanBeNull = false, AutoSync = AutoSync.OnInsert)]
+        [Column(IsPrimaryKey = true, IsDbGenerated = false, CanBeNull = false, AutoSync = AutoSync.Never)]
         public int id;
         
         [Column]
@@ -174,8 +174,11 @@ namespace NihongoSenpai.Data.Database
             Fill(other);
         }
 
-        public Word(String properties)
+        public Word(String properties, Lesson lesson)
         {
+            Lesson = lesson;
+            lessonID = lesson.id;
+
             Fill(properties);
         }
 
@@ -188,8 +191,11 @@ namespace NihongoSenpai.Data.Database
         /// </summary>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder(kana);
+            StringBuilder sb = new StringBuilder();
 
+            sb.Append(id);
+            sb.Append("|");
+            sb.Append(kana);
             sb.Append("|");
             sb.Append(kanji);
             sb.Append("|");
@@ -253,16 +259,14 @@ namespace NihongoSenpai.Data.Database
         /// <summary>
         /// <para>Creates a String to use for export as txt file.</para>
         /// <para>Export Pattern:</para>
-        /// <para>id|lessonId|kana|kanji|translation|description|type|eFactorTransl|lastRoundTransl|nextRoundTransl|eFactorJap|lastRoundJap|nextRoundJap|showFlags|timeStampTransl|timeStampJap</para>
-        /// <para>Length = 16</para>
+        /// <para>id|kana|kanji|translation|description|type|eFactorTransl|lastRoundTransl|nextRoundTransl|eFactorJap|lastRoundJap|nextRoundJap|showFlags|timeStampTransl|timeStampJap</para>
+        /// <para>Length = 15</para>
         /// </summary>
         public String ToExportString()
         {
             StringBuilder sb = new StringBuilder();
             
             sb.Append(id);
-            sb.Append("|");
-            sb.Append(lessonID);
             sb.Append("|");
             sb.Append(kana);
             sb.Append("|");
@@ -326,44 +330,28 @@ namespace NihongoSenpai.Data.Database
         public void Fill(String properties)
         {
             String[] parts = properties.Split('|');
-            
-            //from export string
-            if(parts.Length == 16)
-            {
-                kana                 = parts[2];
-                kanji                = parts[3];
-                translation          = parts[4];
-                description          = parts[5];
-                type                 = Convert.ToInt32 (parts[6]);
-                eFactorTranslation   = Convert.ToSingle(parts[7]);
-                lastRoundTranslation = Convert.ToInt32 (parts[8]);
-                nextRoundTranslation = Convert.ToInt32 (parts[9]);
-                eFactorJapanese      = Convert.ToSingle(parts[10]);
-                lastRoundJapanese    = Convert.ToInt32 (parts[11]);
-                nextRoundJapanese    = Convert.ToInt32 (parts[12]);
-                showFlags            = Convert.ToInt32 (parts[13]);
-                timeStampJapanese    = Convert.ToInt32 (parts[14]);
-                timeStampTranslation      = Convert.ToInt32 (parts[15]);
-            }
-            //from update word
-            else if(parts.Length == 6)
-            {
-                kana        = parts[0];
-                kanji       = parts[1];
-                translation = parts[2];
-                description = parts[3];
-                type        = Convert.ToInt32 (parts[4]);
-            }
-            //from add new word
-            else if(parts.Length == 5)
-            {
-                kana        = parts[0];
-                kanji       = parts[1];
-                translation = parts[2];
-                description = parts[3];
-                type        = Convert.ToInt32(parts[4]);
-            }
 
+            for (int i = 0; i < parts.Length; ++i)
+            {
+                switch(i)
+                {
+                    case  0: id                   = Convert.ToInt32 (parts[i]); break;
+                    case  1: kana                 =                  parts[i] ; break;
+                    case  2: kanji                =                  parts[i] ; break;
+                    case  3: translation          =                  parts[i] ; break;
+                    case  4: description          =                  parts[i] ; break;
+                    case  5: type                 = Convert.ToInt32 (parts[i]); break;
+                    case  6: eFactorTranslation   = Convert.ToSingle(parts[i]); break;
+                    case  7: lastRoundTranslation = Convert.ToInt32 (parts[i]); break;
+                    case  8: nextRoundTranslation = Convert.ToInt32 (parts[i]); break;
+                    case  9: eFactorJapanese      = Convert.ToSingle(parts[i]); break;
+                    case 10: lastRoundJapanese    = Convert.ToInt32 (parts[i]); break;
+                    case 11: nextRoundJapanese    = Convert.ToInt32 (parts[i]); break;
+                    case 12: showFlags            = Convert.ToInt32 (parts[i]); break;
+                    case 13: timeStampTranslation = Convert.ToInt32 (parts[i]); break;
+                    case 14: timeStampJapanese    = Convert.ToInt32 (parts[i]); break;
+                }
+            }
         }
 
         public void Fill(Word other)
@@ -380,8 +368,8 @@ namespace NihongoSenpai.Data.Database
             lastRoundJapanese    = other.lastRoundJapanese;
             nextRoundJapanese    = other.nextRoundJapanese;
             showFlags            = other.showFlags;
+            timeStampTranslation = other.timeStampTranslation;
             timeStampJapanese    = other.timeStampJapanese;
-            timeStampTranslation      = other.timeStampTranslation;
         }
 
         /// <summary>
@@ -389,14 +377,7 @@ namespace NihongoSenpai.Data.Database
         /// </summary>
         public int Timestamp()
         {
-            if(timeStampJapanese > timeStampTranslation)
-            {
-                return timeStampJapanese;
-            }
-            else
-            {
-                return timeStampTranslation;
-            }
+            return Math.Max(timeStampJapanese, timeStampTranslation);
         }
 
         #endregion

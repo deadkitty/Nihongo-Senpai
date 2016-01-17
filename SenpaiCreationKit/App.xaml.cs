@@ -13,7 +13,7 @@ namespace SenpaiCreationKit
         {
             Settings.Default.Reset();
 
-            //DataManager.DeleteDatabase();
+            DataManager.ConnectToDatabase();            
             DataManager.CreateDatabase();
 
             if (Settings.Default.FirstStart)
@@ -24,7 +24,13 @@ namespace SenpaiCreationKit
 
         private void Application_Exit(object sender, ExitEventArgs e)
         {
+            DataManager.CloseConnection();
             Settings.Default.Save();
+        }
+
+        private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            DataManager.CloseConnection();
         }
     }
 }

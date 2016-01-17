@@ -2,8 +2,8 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:settings="clr-namespace:SenpaiCreationKit.Properties"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SenpaiCreationKit.Pages"
       mc:Ignorable="d"
       Width="{StaticResource AppWidth}"
       Height="{StaticResource AppHeight}"
@@ -16,7 +16,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!--Text="{Binding Source={StaticResource Settings}, Path=Test}-->
         <TextBlock x:Name="AppHeader" Style="{StaticResource HeaderStyle}" Text="{Binding Resources.AppName, Source={StaticResource Strings}}" Grid.ColumnSpan="2" Grid.Column="0" />
 
         <Grid Grid.Row="1">
@@ -40,12 +39,12 @@
                     <Button x:Name="deleteLesson"       Style="{StaticResource MenuButton}" Click="deleteLesson_Click"       Content="{Binding Resources.DeleteLesson      , Source={StaticResource Strings}}" IsEnabled="False"/>
                     <Button x:Name="exportLesson"       Style="{StaticResource MenuButton}" Click="exportLesson_Click"       Content="{Binding Resources.ExportLesson      , Source={StaticResource Strings}}" IsEnabled="False"/>
                     <Button x:Name="importLesson"       Style="{StaticResource MenuButton}" Click="importLesson_Click"       Content="{Binding Resources.ImportLesson      , Source={StaticResource Strings}}"/>
-                    <Button x:Name="uploadLesson"       Style="{StaticResource MenuButton}" Click="uploadLesson_Click"       Content="{Binding Resources.UploadLesson      , Source={StaticResource Strings}}" IsEnabled="False"/>
                     <Button x:Name="marketplace"        Style="{StaticResource MenuButton}" Click="marketplace_Click"        Content="{Binding Resources.MarketPlace       , Source={StaticResource Strings}}"/>
-                    <Button x:Name="resetApplication"   Style="{StaticResource MenuButton}" Click="resetApplication_Click"   Content="Anwendung zurücksetzen"/>
+                    <Button x:Name="resetApplication"   Style="{StaticResource MenuButton}" Click="resetApplication_Click"   Content="Anwendung zurücksetzen" Visibility="Collapsed"/>
                 </StackPanel>
 
                 <Button x:Name="exitApp" Style="{StaticResource MenuButton}" Click="exitApp_Click" Content="{Binding Resources.CloseApp, Source={StaticResource Strings}}" VerticalAlignment="Bottom"/>
+                
             </Grid>
 
             <Grid Grid.Column="1" Grid.Row="0">
@@ -58,9 +57,9 @@
                 <TextBlock Grid.Row="0" Style="{StaticResource LabelTextblockBig}" Text="{Binding Resources.FilterLessons, Source={StaticResource Strings}}"/>
 
                 <ComboBox Grid.Row="1" x:Name="typeComboBox" Margin="5" SelectedIndex="0" SelectionChanged="typeComboBox_SelectionChanged"/>
-                
+
             </Grid>
-            
+
             <Grid Grid.Column="2" Grid.Row="0">
 
                 <Grid.RowDefinitions>
