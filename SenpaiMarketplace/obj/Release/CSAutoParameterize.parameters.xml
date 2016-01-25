@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="SenpaiDatabase-Web.config Connection String" description="SenpaiDatabase Die in der Datei &amp;quot;web.config&amp;quot; festgelegte Verbindungszeichenfolge, die von der Anwendung für den Zugriff auf die Datenbank verwendet wird." defaultValue="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\SenpaiDatabase.mdf;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Soi\ Fon\\Visual\ Studio\\Projects\\Nihongo-Senpai\\SenpaiMarketplace\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SenpaiDatabase']/@connectionString" />
+  </parameter>
+  <parameter name="SenpaiMarketplaceContext-Web.config Connection String" description="SenpaiMarketplaceContext Die in der Datei &amp;quot;web.config&amp;quot; festgelegte Verbindungszeichenfolge, die von der Anwendung für den Zugriff auf die Datenbank verwendet wird." defaultValue="Data Source=(localdb)\MSSQLLocalDB; Initial Catalog=SenpaiMarketplaceContext-20160107215200; Integrated Security=True; MultipleActiveResultSets=True; AttachDbFilename=|DataDirectory|SenpaiMarketplaceContext-20160107215200.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Soi\ Fon\\Visual\ Studio\\Projects\\Nihongo-Senpai\\SenpaiMarketplace\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SenpaiMarketplaceContext']/@connectionString" />
+  </parameter>
+</parameters>

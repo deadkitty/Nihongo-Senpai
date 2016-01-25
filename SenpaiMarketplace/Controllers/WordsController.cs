@@ -80,7 +80,22 @@ namespace SenpaiMarketplace.Controllers
             }
 
             db.Words.Add(word);
-            db.SaveChanges();
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                if (WordExists(word.Id))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
             return CreatedAtRoute("DefaultApi", new { id = word.Id }, word);
         }

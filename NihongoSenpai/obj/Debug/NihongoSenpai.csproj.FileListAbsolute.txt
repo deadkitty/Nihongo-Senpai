@@ -111,3 +111,4 @@ D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\obj\Debug\Multipl
 D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\obj\Debug\ProjectArchitectures.txt
 D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\obj\Debug\MDILProjectFiles.xml
 D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\obj\Debug\XapCacheFile.xml
+D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\obj\Debug\NihongoSenpai.csprojResolveAssemblyReference.cache

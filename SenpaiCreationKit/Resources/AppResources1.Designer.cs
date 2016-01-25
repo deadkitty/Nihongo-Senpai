@@ -106,6 +106,15 @@ namespace SenpaiCreationKit.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die auswählen ähnelt.
+        /// </summary>
+        public static string Choose {
+            get {
+                return ResourceManager.GetString("Choose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Alle auswählen ähnelt.
         /// </summary>
         public static string ChooseAll {
@@ -426,6 +435,15 @@ namespace SenpaiCreationKit.Resources {
         public static string SearchLessons {
             get {
                 return ResourceManager.GetString("SearchLessons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Lektionen auswählen ähnelt.
+        /// </summary>
+        public static string SetLessons {
+            get {
+                return ResourceManager.GetString("SetLessons", resourceCulture);
             }
         }
         

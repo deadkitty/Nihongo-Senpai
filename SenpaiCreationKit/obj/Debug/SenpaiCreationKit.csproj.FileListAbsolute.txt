@@ -104,3 +104,5 @@ D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\SenpaiCreationKit\obj\Debug\Pag
 D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\SenpaiCreationKit\obj\Debug\Pages\EditInsertLessonPage.baml
 D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\SenpaiCreationKit\obj\Debug\Pages\EditVocabLessonPage.baml
 D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\SenpaiCreationKit\obj\Debug\Pages\MarketplacePage.baml
+D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\SenpaiCreationKit\obj\Debug\Controls\SelectLessonsControl.g.cs
+D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\SenpaiCreationKit\obj\Debug\Controls\SelectLessonsControl.baml

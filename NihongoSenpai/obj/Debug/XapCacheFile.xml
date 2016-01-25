@@ -1,6 +1,6 @@
-﻿<xapCache source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\Bin\Debug\NihongoSenpai_Debug_AnyCPU.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="17.01.2016 00:39:22">
-  <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\Bin\Debug\resources.pri" archivePath="resources.pri" lastWriteTime="17.01.2016 00:37:51" />
-  <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\obj\Debug\NihongoSenpai.dll" archivePath="NihongoSenpai.dll" lastWriteTime="17.01.2016 00:39:19" />
+﻿<xapCache source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\Bin\Debug\NihongoSenpai_Debug_AnyCPU.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="25.01.2016 04:13:30">
+  <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\Bin\Debug\resources.pri" archivePath="resources.pri" lastWriteTime="25.01.2016 04:08:20" />
+  <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\obj\Debug\NihongoSenpai.dll" archivePath="NihongoSenpai.dll" lastWriteTime="25.01.2016 04:13:26" />
   <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\Assets\AlignmentGrid.png" archivePath="Assets\AlignmentGrid.png" lastWriteTime="06.01.2016 15:22:15" />
   <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\Assets\AppBar\delete.png" archivePath="Assets\AppBar\delete.png" lastWriteTime="15.07.2015 01:59:27" />
   <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\Assets\AppBar\edit.png" archivePath="Assets\AppBar\edit.png" lastWriteTime="15.07.2015 01:59:27" />
@@ -56,10 +56,10 @@
   <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\Toolkit.Content\ApplicationBar.Select.png" archivePath="Toolkit.Content\ApplicationBar.Select.png" lastWriteTime="06.01.2016 15:29:16" />
   <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="17.01.2016 00:34:41" />
   <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll" archivePath="Microsoft.Phone.Controls.Toolkit.dll" lastWriteTime="05.01.2016 23:19:53" />
-  <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\packages\Newtonsoft.Json.8.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll" archivePath="Newtonsoft.Json.dll" lastWriteTime="05.01.2016 23:16:44" />
-  <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\packages\Newtonsoft.Json.8.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.xml" archivePath="Newtonsoft.Json.xml" lastWriteTime="05.01.2016 23:16:44" />
+  <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\packages\Newtonsoft.Json.8.0.2\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll" archivePath="Newtonsoft.Json.dll" lastWriteTime="11.01.2016 20:50:37" />
+  <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\packages\Newtonsoft.Json.8.0.2\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.xml" archivePath="Newtonsoft.Json.xml" lastWriteTime="11.01.2016 20:50:37" />
   <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\Assets\umaru-chan.png" archivePath="Assets\umaru-chan.png" lastWriteTime="05.01.2016 23:36:31" />
   <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\Bin\Debug\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="17.01.2016 00:34:41" />
-  <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\obj\Debug\MDILProjectFiles.xml" archivePath="MDILProjectFiles.xml" lastWriteTime="17.01.2016 00:39:21" />
-  <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\Bin\Debug\AppxManifest.xml" archivePath="AppxManifest.xml" lastWriteTime="17.01.2016 00:37:51" />
+  <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\obj\Debug\MDILProjectFiles.xml" archivePath="MDILProjectFiles.xml" lastWriteTime="25.01.2016 04:13:29" />
+  <file source="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\Bin\Debug\AppxManifest.xml" archivePath="AppxManifest.xml" lastWriteTime="25.01.2016 04:08:20" />
 </xapCache>

@@ -60,6 +60,8 @@ namespace SenpaiCreationKit.Pages
             typeComboBox.Items.Add(AppResources.VocabLesson);
             typeComboBox.Items.Add(AppResources.FlashLesson);
             typeComboBox.Items.Add(AppResources.InsertLesson);
+
+            //marketplace_Click(sender, e);
         }
 
         #endregion

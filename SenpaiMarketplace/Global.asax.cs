@@ -1,5 +1,4 @@
-﻿using SenpaiMarketplace.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Formatting;
@@ -15,11 +14,6 @@ namespace SenpaiMarketplace
     {
         protected void Application_Start()
         {
-            using (SenpaiDatabase database = new SenpaiDatabase())
-            {
-                database.Database.CreateIfNotExists();
-            }
-
             AreaRegistration.RegisterAllAreas();
 
             JsonMediaTypeFormatter json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;

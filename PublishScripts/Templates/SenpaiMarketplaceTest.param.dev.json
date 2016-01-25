@@ -1,0 +1,29 @@
+{
+  "siteName": {
+    "value": "senpai-marketplace-test"
+  },
+  "hostingPlanName": {
+    "value": "SenpaiMarketplace"
+  },
+  "siteLocation": {
+    "value": "South Central US"
+  },
+  "sku": {
+    "value": "Free"
+  },
+  "workerSize": {
+    "value": "0"
+  },
+  "siteMode": {
+    "value": "Limited"
+  },
+  "computeMode": {
+    "value": "0"
+  },
+  "subscriptionId": {
+    "value": "7ac4dbb4-8dd3-42d4-bef9-a89d5a84196f"
+  },
+  "resourceGroup": {
+    "value": "Default"
+  }
+}

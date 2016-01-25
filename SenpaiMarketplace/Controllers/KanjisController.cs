@@ -80,7 +80,22 @@ namespace SenpaiMarketplace.Controllers
             }
 
             db.Kanjis.Add(kanji);
-            db.SaveChanges();
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                if (KanjiExists(kanji.Id))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
             return CreatedAtRoute("DefaultApi", new { id = kanji.Id }, kanji);
         }

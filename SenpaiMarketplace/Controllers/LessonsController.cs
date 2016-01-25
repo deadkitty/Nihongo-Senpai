@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using SenpaiMarketplace.Models;
+using System.IO;
 
 namespace SenpaiMarketplace.Controllers
 {
@@ -19,15 +20,15 @@ namespace SenpaiMarketplace.Controllers
         // GET: api/Lessons
         public List<Lesson> GetLessons()
         {
-            //i have to copy the lessons from db.Lessons to a list, otherwise 
-            //the lessons aren't returned. don't know why, but i think the problem is this shit windows 10 , because on windows 8 it worked -.-"
             List<Lesson> lessons = new List<Lesson>();
-
-            lessons.AddRange(db.Lessons);
-            //foreach (Lesson lesson in db.Lessons)
-            //{
-            //    lessons.Add(lesson);
-            //}
+            
+            using (StreamReader sr = new StreamReader("Lessons\\lessons.txt"))
+            {
+                while(!sr.EndOfStream)
+                {
+                    lessons.Add(new Lesson(sr.ReadLine()));
+                }
+            }
 
             return lessons;
         }
@@ -36,10 +37,23 @@ namespace SenpaiMarketplace.Controllers
         [ResponseType(typeof(Lesson))]
         public IHttpActionResult GetLesson(int id)
         {
-            Lesson lesson = db.Lessons.Find(id);
-            if (lesson == null)
+            String path = "Lessons\\" + id + ".txt";
+
+            if (!File.Exists(path))
             {
                 return NotFound();
+            }
+
+            Lesson lesson = new Lesson();
+                        
+            using (StreamReader sr = new StreamReader(path))
+            {
+                lesson.Fill(sr.ReadLine());
+
+                while (!sr.EndOfStream)
+                {
+                    lesson.AddItem(sr.ReadLine());
+                }
             }
 
             return Ok(lesson);
@@ -47,33 +61,72 @@ namespace SenpaiMarketplace.Controllers
 
         // PUT: api/Lessons/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutLesson(int id, Lesson lesson)
+        public IHttpActionResult PutLesson(List<Lesson> lessonsToUpdate)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != lesson.Id)
+            //check if lessons exists
+            foreach (Lesson lesson in lessonsToUpdate)
             {
-                return BadRequest();
-            }
+                String path = "Lessons\\" + lesson.Id + ".txt";
 
-            db.Entry(lesson).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!LessonExists(id))
+                if (!File.Exists(path))
                 {
                     return NotFound();
                 }
-                else
+            }
+
+            //update lessons
+            foreach (Lesson lesson in lessonsToUpdate)
+            {
+                String path = "Lessons\\" + lesson.Id + ".txt";
+
+                using (StreamWriter sw = new StreamWriter(File.Create(path)))
                 {
-                    throw;
+                    sw.WriteLine(lesson.ToCreateNewString());
+
+                    foreach (ILessonItem item in lesson.Words)
+                    {
+                        sw.WriteLine(item.ToCreateNewString());
+                    }
+
+                    foreach (ILessonItem item in lesson.Kanjis)
+                    {
+                        sw.WriteLine(item.ToCreateNewString());
+                    }
+
+                    foreach (ILessonItem item in lesson.Clozes)
+                    {
+                        sw.WriteLine(item.ToCreateNewString());
+                    }
+                }
+            }
+
+            //update lessons.txt
+            List<Lesson> allLessons = GetLessons();
+            
+            foreach(Lesson updateLesson in lessonsToUpdate)
+            {
+                foreach(Lesson lesson in allLessons)
+                {
+                    if(lesson.Id == updateLesson.Id)
+                    {
+                        lesson.Fill(updateLesson);
+                        break;
+                    }
+                }
+            }
+            
+            String lessonsFile = "Lessons\\lessons.txt";
+
+            using (StreamWriter sw = new StreamWriter(File.Create(lessonsFile)))
+            {
+                foreach (Lesson lesson in allLessons)
+                {
+                    sw.WriteLine(lesson.ToCreateNewString());
                 }
             }
 
@@ -88,17 +141,53 @@ namespace SenpaiMarketplace.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            db.Lessons.AddRange(lessons);
-
-            foreach(Lesson lesson in lessons)
+            
+            //look if lessons exist
+            foreach (Lesson lesson in lessons)
             {
-                db.Words .AddRange(lesson.Words);
-                db.Kanjis.AddRange(lesson.Kanjis);
-                db.Clozes.AddRange(lesson.Clozes);
+                if(File.Exists("Lessons\\" + lesson.Id + ".txt"))
+                {
+                    return Conflict();
+                }
             }
 
-            db.SaveChanges();
+            //create lesson files
+            foreach (Lesson lesson in lessons)
+            {
+                using (StreamWriter sw = new StreamWriter("Lessons\\" + lesson.Id + ".txt"))
+                {
+                    sw.WriteLine(lesson.ToCreateNewString());
+
+                    foreach (ILessonItem item in lesson.Words)
+                    {
+                        sw.WriteLine(item.ToCreateNewString());
+                    }
+
+                    foreach (ILessonItem item in lesson.Kanjis)
+                    {
+                        sw.WriteLine(item.ToCreateNewString());
+                    }
+
+                    foreach (ILessonItem item in lesson.Clozes)
+                    {
+                        sw.WriteLine(item.ToCreateNewString());
+                    }
+                }
+            }
+
+            //update lessons.txt
+            List<Lesson> allLessons = GetLessons();
+
+            allLessons.AddRange(lessons);
+            allLessons = allLessons.OrderBy(x => x.Id).ToList();
+
+            using (StreamWriter sw = new StreamWriter(File.Create("Lessons\\lessons.txt")))
+            {
+                foreach (Lesson lesson in allLessons)
+                {
+                    sw.WriteLine(lesson.ToCreateNewString());
+                }
+            }
 
             return CreatedAtRoute("DefaultApi", new { id = lessons[0].Id }, lessons);
         }
@@ -107,16 +196,37 @@ namespace SenpaiMarketplace.Controllers
         [ResponseType(typeof(Lesson))]
         public IHttpActionResult DeleteLesson(int id)
         {
-            Lesson lesson = db.Lessons.Find(id);
-            if (lesson == null)
+            String file = "Lessons\\" + id + ".txt";
+
+            if (!File.Exists(file))
             {
                 return NotFound();
             }
 
-            db.Lessons.Remove(lesson);
-            db.SaveChanges();
+            String tempFile = Path.GetTempFileName();
+            String lessonsFile = "Lessons\\lessons.txt";
+            
+            //Update lessons.txt and remove lesson line
+            using (StreamReader sr = new StreamReader(lessonsFile))
+            using (StreamWriter sw = new StreamWriter(tempFile))
+            {
+                while (!sr.EndOfStream)
+                {
+                    String line = sr.ReadLine();
+                    String lessonID = line.Substring(0, line.IndexOf('|'));
+                    if (lessonID != id.ToString())
+                    {
+                        sw.WriteLine(line);
+                    }
+                }
+            }
+            
+            File.Delete(lessonsFile);
+            File.Move(tempFile, lessonsFile);
 
-            return Ok(lesson);
+            File.Delete(file);
+
+            return Ok(true);
         }
 
         protected override void Dispose(bool disposing)

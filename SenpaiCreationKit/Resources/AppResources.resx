@@ -255,4 +255,10 @@
   <data name="VocabTextboxesCantBeEmpty" xml:space="preserve">
     <value>Kana- und Übersetztung-Textboxen dürfen nicht leer sein!</value>
   </data>
+  <data name="SetLessons" xml:space="preserve">
+    <value>Lektionen auswählen</value>
+  </data>
+  <data name="Choose" xml:space="preserve">
+    <value>auswählen</value>
+  </data>
 </root>

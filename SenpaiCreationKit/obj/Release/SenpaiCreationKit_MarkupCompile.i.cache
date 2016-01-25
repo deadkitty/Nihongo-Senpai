@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Soi Fon\Visual Studio\Projects\NihongoSenpai\SenpaiCreationKit\obj\Release\
+D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\SenpaiCreationKit\obj\Release\
 SenpaiCreationKit
 none
 false
 TRACE
-D:\Soi Fon\Visual Studio\Projects\NihongoSenpai\SenpaiCreationKit\App.xaml
-11306614151
+D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\SenpaiCreationKit\App.xaml
+15519964766
 
-32-1373629329
-73282616674
-Controls\DetailItem.xaml;Controls\SelectTypeControl.xaml;MainWindow.xaml;Pages\CreateFlashLessonPage.xaml;Pages\CreateInsertLessonPage.xaml;Pages\CreateVocabLessonPage.xaml;Pages\MainPage.xaml;Pages\MarketplacePage.xaml;Resources\Colors.xaml;Resources\DataTemplates.xaml;Resources\Styles.xaml;
+291359531373
+75735975917
+Controls\DetailItem.xaml;Controls\SelectLessonsControl.xaml;Controls\SelectTypeControl.xaml;MainWindow.xaml;Pages\CreateFlashLessonPage.xaml;Pages\CreateInsertLessonPage.xaml;Pages\CreateVocabLessonPage.xaml;Pages\EditFlashLessonPage.xaml;Pages\EditInsertLessonPage.xaml;Pages\EditVocabLessonPage.xaml;Pages\MainPage.xaml;Pages\MarketplacePage.xaml;Resources\Colors.xaml;Resources\DataTemplates.xaml;Resources\Styles.xaml;
 
 True
 

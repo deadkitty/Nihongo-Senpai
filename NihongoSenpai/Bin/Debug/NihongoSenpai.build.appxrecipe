@@ -24,7 +24,7 @@
     <AppxPackagedFile Include="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll">
       <PackagePath>Microsoft.Phone.Controls.Toolkit.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\packages\Newtonsoft.Json.8.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll">
+    <AppxPackagedFile Include="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\packages\Newtonsoft.Json.8.0.2\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\packages\WPtoolkit.4.2013.08.16\lib\wp8\ar-SA\Microsoft.Phone.Controls.Toolkit.resources.dll">
@@ -174,7 +174,7 @@
     <AppxPackagedFile Include="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\packages\WPtoolkit.4.2013.08.16\lib\wp8\zh-TW\Microsoft.Phone.Controls.Toolkit.resources.dll">
       <PackagePath>zh-TW\Microsoft.Phone.Controls.Toolkit.resources.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\packages\Newtonsoft.Json.8.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.xml">
+    <AppxPackagedFile Include="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\packages\Newtonsoft.Json.8.0.2\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.xml">
       <PackagePath>Newtonsoft.Json.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Soi Fon\Visual Studio\Projects\Nihongo-Senpai\NihongoSenpai\Assets\AlignmentGrid.png">

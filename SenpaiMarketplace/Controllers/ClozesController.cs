@@ -80,7 +80,22 @@ namespace SenpaiMarketplace.Controllers
             }
 
             db.Clozes.Add(cloze);
-            db.SaveChanges();
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                if (ClozeExists(cloze.Id))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
             return CreatedAtRoute("DefaultApi", new { id = cloze.Id }, cloze);
         }
