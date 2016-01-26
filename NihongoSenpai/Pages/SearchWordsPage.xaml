@@ -28,8 +28,8 @@
         <Controls:EditWordControl x:Name="editWordsControl" Grid.RowSpan="3" Canvas.ZIndex="1" Visibility="Collapsed"/>
 
         <StackPanel Grid.Row="2">
-            <Button Name="editButton"       Content="Bearbeiten"  Style="{StaticResource SelectButtonStyle}" Click="editButton_Click"/>
-            <Button Name="showLessonButton" Content="zur Lektion" Style="{StaticResource SelectButtonStyle}" Click="showLessonButton_Click"/>
+            <Button Name="editButton"       Content="{Binding LocalizedResources.Edit,       Source={StaticResource LocalizedStrings}}" Style="{StaticResource SelectButtonStyle}" Click="editButton_Click"/>
+            <Button Name="showLessonButton" Content="{Binding LocalizedResources.GoToLesson, Source={StaticResource LocalizedStrings}}" Style="{StaticResource SelectButtonStyle}" Click="showLessonButton_Click"/>
         </StackPanel>
 
     </Grid>

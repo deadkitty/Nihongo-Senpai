@@ -205,11 +205,29 @@ namespace NihongoSenpai.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Lektionen löschen ähnelt.
+        /// </summary>
+        public static string DeleteLessons {
+            get {
+                return ResourceManager.GetString("DeleteLessons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Beschreibung ähnelt.
         /// </summary>
         public static string Description {
             get {
                 return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Lektionen Downloaden ähnelt.
+        /// </summary>
+        public static string DownloadLesson {
+            get {
+                return ResourceManager.GetString("DownloadLesson", resourceCulture);
             }
         }
         
@@ -264,6 +282,15 @@ namespace NihongoSenpai.Resources {
         public static string GermanJapanese {
             get {
                 return ResourceManager.GetString("GermanJapanese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zur Lektion ähnelt.
+        /// </summary>
+        public static string GoToLesson {
+            get {
+                return ResourceManager.GetString("GoToLesson", resourceCulture);
             }
         }
         

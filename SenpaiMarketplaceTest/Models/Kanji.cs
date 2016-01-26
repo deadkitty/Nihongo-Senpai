@@ -14,7 +14,7 @@ namespace SenpaiMarketplaceTest.Models
 
         public int Id { get; set; }
 
-        public String Sign { get; set; }
+        public String kanji { get; set; }
         public String Meaning { get; set; }
         public String Onyomi { get; set; }
         public String Kunyomi { get; set; }
@@ -44,7 +44,7 @@ namespace SenpaiMarketplaceTest.Models
 
         public override string ToString()
         {
-            return Sign + " - " + Meaning + " - " + Onyomi + "、" + Kunyomi;
+            return kanji + " - " + Meaning + " - " + Onyomi + "、" + Kunyomi;
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace SenpaiMarketplaceTest.Models
 
             sb.Append(Id);
             sb.Append("|");
-            sb.Append(Sign);
+            sb.Append(kanji);
             sb.Append("|");
             sb.Append(Meaning);
             sb.Append("|");
@@ -83,7 +83,7 @@ namespace SenpaiMarketplaceTest.Models
             String[] parts = properties.Split('|');
 
             Id          = Convert.ToInt32(parts[0]);
-            Sign        = parts[1];
+            kanji        = parts[1];
             Meaning     = parts[2];
             Onyomi      = parts[3];
             Kunyomi     = parts[4];

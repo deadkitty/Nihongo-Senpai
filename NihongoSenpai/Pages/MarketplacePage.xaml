@@ -1,35 +1,83 @@
 ﻿<phone:PhoneApplicationPage
     x:Class="NihongoSenpai.Pages.MarketplacePage"
+    xmlns:Controls="clr-namespace:NihongoSenpai.Controls"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True"
+    Loaded="PhoneApplicationPage_Loaded"
+    Unloaded="PhoneApplicationPage_Unloaded">
 
     <!--LayoutRoot ist das Stammraster, in dem alle anderen Seiteninhalte platziert werden-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <Grid Background="White">
+        <phone:Pivot x:Name="pivot">
+            <phone:PivotItem>
+                <phone:PivotItem.Header>
+                    <TextBlock Text="Installiert" Foreground="Black" FontSize="60" FontWeight="Bold"/>
+                </phone:PivotItem.Header>
+                <phone:PivotItem.Content>                    
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
 
-        <!--TitlePanel enthält den Namen der Anwendung und den Seitentitel-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MEINE ANWENDUNG" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="Seitenname" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-        </StackPanel>
+                        <toolkit:ListPicker x:Name="typeListPicker" Grid.Row="0" SelectedIndex="0" Foreground="{StaticResource AppBackgroundDark}" BorderBrush="{StaticResource AppBackgroundDark}" FontSize="21" VerticalAlignment="Top" Margin="10, 0">
+                            <toolkit:ListPickerItem Content="Alle anzeigen"/>
+                            <toolkit:ListPickerItem Content="Vokabellektionen anzeigen"/>
+                            <toolkit:ListPickerItem Content="Flashcardslektionen anzeigen"/>
+                            <toolkit:ListPickerItem Content="Lückentextlektionen anzeigen"/>
+                        </toolkit:ListPicker>
+                        <TextBox Grid.Row="1" x:Name="searchTextbox" TextWrapping="Wrap" BorderBrush="{StaticResource AppForegroundDark}" Background="{x:Null}" FontSize="26.667" KeyDown="searchTextbox_KeyDown"/>
 
-        <!--ContentPanel - zusätzliche Inhalte hier platzieren-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+                        <ListBox Grid.Row="2" x:Name="localLessonsListbox" SelectionMode="Multiple" Style="{StaticResource SelectLessonsListboxStyle}"/>
+                            
+                        <Button  Grid.Row="3" x:Name="deleteLessons" Content="{Binding LocalizedResources.DeleteLessons, Source={StaticResource LocalizedStrings}}" Style="{StaticResource SelectButtonStyle}" Click="deleteLessons_Click"/>
+                    </Grid>
+                </phone:PivotItem.Content>
+            </phone:PivotItem>
 
-        </Grid>
+            <phone:PivotItem>
+                <phone:PivotItem.Header>
+                    <TextBlock Text="Marktplatz" Foreground="Black" FontSize="60" FontWeight="Bold"/>
+                </phone:PivotItem.Header>
+                <phone:PivotItem.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <toolkit:ListPicker x:Name="typeListPicker2" Grid.Row="0" SelectedIndex="0" Foreground="{StaticResource AppBackgroundDark}" BorderBrush="{StaticResource AppBackgroundDark}" FontSize="21" VerticalAlignment="Top" Margin="10, 0">
+                            <toolkit:ListPickerItem Content="Alle anzeigen"/>
+                            <toolkit:ListPickerItem Content="Vokabellektionen anzeigen"/>
+                            <toolkit:ListPickerItem Content="Flashcardslektionen anzeigen"/>
+                            <toolkit:ListPickerItem Content="Lückentextlektionen anzeigen"/>
+                        </toolkit:ListPicker>
+                        <TextBox Grid.Row="1" x:Name="searchTextbox2" TextWrapping="Wrap" BorderBrush="{StaticResource AppForegroundDark}" Background="{x:Null}" FontSize="26.667" KeyDown="searchTextbox2_KeyDown"/>
+
+                        <ListBox Grid.Row="2" x:Name="marketplaceLessonsListbox" SelectionMode="Multiple" Style="{StaticResource SelectLessonsListboxStyle}"/>
+
+                        <Button  Grid.Row="3" x:Name="downloadButton" Content="{Binding LocalizedResources.DownloadLessons, Source={StaticResource LocalizedStrings}}" Style="{StaticResource SelectButtonStyle}" Click="downloadButton_Click"/>
+                    </Grid>
+                </phone:PivotItem.Content>
+            </phone:PivotItem>
+        </phone:Pivot>
+
+
     </Grid>
 
 </phone:PhoneApplicationPage>
