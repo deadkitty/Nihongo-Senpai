@@ -94,17 +94,26 @@ namespace NihongoSenpai.Controller
         
         public void InitText()
         {
-            if(source.kanji == "")
+            if(source.Type == Word.EType.grammar)
             {
-                shownText = source.kana;
-                hiddenText1 = "";
-                hiddenText2 = source.translation;
+                shownText   = source.kana;
+                hiddenText1 = source.translation;
+                hiddenText2 = source.kanji;
             }
             else
             {
-                shownText = source.kanji;
-                hiddenText1 = source.kana + "、";
-                hiddenText2 = source.translation;
+                if (source.kanji == "")
+                {
+                    shownText   = source.kana;
+                    hiddenText1 = "";
+                    hiddenText2 = source.translation;
+                }
+                else
+                {
+                    shownText   = source.kanji;
+                    hiddenText1 = source.kana + "、";
+                    hiddenText2 = source.translation;
+                }
             }
 
             switch (source.ShowDescription)

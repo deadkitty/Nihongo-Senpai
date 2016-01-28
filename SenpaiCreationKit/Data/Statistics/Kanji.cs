@@ -7,68 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-#pragma warning disable 0649
-
 namespace NihongoSenpai.Data.Database
 {
-    [Table(Name="Kanjis")]
     public class Kanji
     {
         #region Fields
-
-        [Column(IsPrimaryKey = true, IsDbGenerated = false, CanBeNull = false, AutoSync = AutoSync.Never)]
+        
         public int id;
-
-        [Column]
-        private int lessonID;
-        private EntityRef<Lesson> lesson = new EntityRef<Lesson>();
-
-        [Column]
-        public String kanji;
-
-        [Column]
-        public String meaning;
-
-        [Column]
-        public String onyomi;
-
-        [Column]
-        public String kunyomi;
-
-        [Column]
-        public String example;
-
-        /// <summary>
-        /// not used yet
-        /// </summary>
-        [Column]
+                
+        public String kanji { get; set; }
+        public String meaning { get; set; }
+        public String onyomi { get; set; }
+        public String kunyomi { get; set; }
+        public String example { get; set; }
         public String strokeOrder;
 
-        [Column]
-        public float eFactor;
+        public float eFactor { get; set; }
+        public int lastRound { get; set; }
+        public int nextRound { get; set; }
+        public int timestamp { get; set; }
 
-        [Column]
-        public int lastRound;
-
-        [Column]
-        public int nextRound;
-
-        [Column]
-        public int timestamp;
-        
         #endregion
 
         #region Properties
-        
-        [Association(Name="lessonKanjiFK", IsForeignKey=true, ThisKey="lessonID", Storage="lesson")]
-        public Lesson Lesson
-        {
-            get { return lesson.Entity; }
-            set { lesson.Entity = value; }
-        }
+
 
         #endregion
-        
+
         #region Constructor
 
         public Kanji()
@@ -81,11 +46,8 @@ namespace NihongoSenpai.Data.Database
             Fill(other);
         }
 
-        public Kanji(String properties, Lesson lesson)
+        public Kanji(String properties)
         {
-            Lesson = lesson;
-            lessonID = lesson.id;
-
             Fill(properties);
         }
 
@@ -122,7 +84,7 @@ namespace NihongoSenpai.Data.Database
             sb.Append("|");
             sb.Append(strokeOrder);
             sb.Append("|");
-            sb.Append(eFactor);
+            sb.Append(eFactor.ToString(CultureInfo.InvariantCulture));
             sb.Append("|");
             sb.Append(lastRound);
             sb.Append("|");

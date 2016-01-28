@@ -80,20 +80,6 @@ namespace NihongoSenpai.Controller
             }
 
             LoadLessons();
-
-            //refactoring repetion/nextRound for new design pattern
-            //foreach (Word word in VocabData.Words)
-            //{
-            //    word.nextRoundJapanese -= word.lastRoundJapanese;
-            //    word.nextRoundTranslation -= word.lastRoundTranslation;
-
-            //    word.nextRoundJapanese = (int)MathHelper.Clamp(word.nextRoundJapanese, 0, 100);
-            //    word.nextRoundTranslation = (int)MathHelper.Clamp(word.nextRoundTranslation, 0, 100);
-
-            //    word.lastRoundJapanese = 0;
-            //    word.lastRoundTranslation = 0;
-            //}
-            //DataManager.SaveChanges();
         }
 
         public static void LoadLessons()
@@ -167,6 +153,9 @@ namespace NihongoSenpai.Controller
                 {
                     if(item.TimeStamp == 0)
                     {
+                        item.LastRound = AppSettings.VocabRound;
+                        item.NextRound = AppSettings.VocabRound;
+
                         if(newWords < maxNewWords)
                         {
                             ++newWords;
@@ -212,7 +201,7 @@ namespace NihongoSenpai.Controller
             {
                 if(repetition == 0)
                 {
-                    nextRound += 1;
+                    ++nextRound;
                 }  
                 else if(repetition == 1)
                 {

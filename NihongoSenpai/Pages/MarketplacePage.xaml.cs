@@ -291,5 +291,39 @@ namespace NihongoSenpai.Pages
         }
 
         #endregion
+
+        #region ApplicationBar
+
+        private void selectAll_Click(object sender, EventArgs e)
+        {
+            if(pivot.SelectedIndex == 0)
+            {
+                foreach (object item in localLessonsListbox.Items)
+                {
+                    localLessonsListbox.SelectedItems.Add(item);
+                }
+            }
+            else
+            {
+                foreach (object item in marketplaceLessonsListbox.Items)
+                {
+                    marketplaceLessonsListbox.SelectedItems.Add(item);
+                }
+            }
+        }
+
+        private void selectNone_Click(object sender, EventArgs e)
+        {
+            if (pivot.SelectedIndex == 0)
+            {
+                localLessonsListbox.SelectedItems.Clear();
+            }
+            else
+            {
+                marketplaceLessonsListbox.SelectedItems.Clear();
+            }
+        }
+
+        #endregion
     }
 }

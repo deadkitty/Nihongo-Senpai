@@ -80,4 +80,13 @@
 
     </Grid>
 
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="true" IsMenuEnabled="True" Mode="Minimized" Opacity="1" BackgroundColor="White" ForegroundColor="Black">
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="selectAll"  Text="alle auswählen" Click="selectAll_Click"/>
+                <shell:ApplicationBarMenuItem x:Name="selectNone" Text="keine auswählen" Click="selectNone_Click"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
 </phone:PhoneApplicationPage>

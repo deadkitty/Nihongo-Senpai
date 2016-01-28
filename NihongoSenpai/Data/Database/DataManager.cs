@@ -268,12 +268,6 @@ namespace NihongoSenpai.Data.Database
                     //if the word isn't in the database than insert it new
                     if (dbWord == null)
                     {
-                        //before insert set last and nextRound Properties to the correct values
-                        word.lastRoundJapanese = AppSettings.VocabRound;
-                        word.nextRoundJapanese = AppSettings.VocabRound;
-                        word.lastRoundTranslation = AppSettings.VocabRound;
-                        word.nextRoundTranslation = AppSettings.VocabRound;
-
                         word.Lesson = dbLesson;
                         dbLesson.Words.Add(word);
 
@@ -286,14 +280,6 @@ namespace NihongoSenpai.Data.Database
             }
             else //lesson does not exists, so just insert it
             {
-                foreach(Word word in importLesson.Words)
-                {
-                    word.lastRoundJapanese = AppSettings.VocabRound;
-                    word.nextRoundJapanese = AppSettings.VocabRound;
-                    word.lastRoundTranslation = AppSettings.VocabRound;
-                    word.nextRoundTranslation = AppSettings.VocabRound;
-                }
-
                 database.words.InsertAllOnSubmit(importLesson.Words);
                 database.lessons.InsertOnSubmit(importLesson);
             }
@@ -392,9 +378,6 @@ namespace NihongoSenpai.Data.Database
                     //if the kanji isn't in the database than insert it new
                     if (dbKanji == null)
                     {
-                        kanji.lastRound = AppSettings.KanjiRound;
-                        kanji.nextRound = AppSettings.KanjiRound;
-
                         kanji.Lesson = dbLesson;
                         dbLesson.Kanjis.Add(kanji);
 
@@ -406,11 +389,6 @@ namespace NihongoSenpai.Data.Database
             }
             else //lesson does not exists, so just insert it
             {
-                foreach(Kanji kanji in importLesson.Kanjis)
-                {
-                    kanji.lastRound = AppSettings.KanjiRound;
-                    kanji.nextRound = AppSettings.KanjiRound;
-                }
                 database.kanjis.InsertAllOnSubmit(importLesson.Kanjis);
                 database.lessons.InsertOnSubmit(importLesson);
             }

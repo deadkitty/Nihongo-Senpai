@@ -6,11 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-#pragma warning disable 0649
-
 namespace NihongoSenpai.Data.Database
 {
-    [Table(Name="Words")]
     public class Word
     {
         #region EType
@@ -29,7 +26,6 @@ namespace NihongoSenpai.Data.Database
             suffix,
             prefix,
             phrase,
-            grammar,
             count,
             undefined = -1,
         }
@@ -52,114 +48,27 @@ namespace NihongoSenpai.Data.Database
 
         #region Fields
         
-        [Column(IsPrimaryKey = true, IsDbGenerated = false, CanBeNull = false, AutoSync = AutoSync.Never)]
         public int id;
         
-        [Column]
-        private int lessonID;
-        private EntityRef<Lesson> lesson = new EntityRef<Lesson>();
+        public String kana { get; set; }        
+        public String kanji { get; set; }
+        public String translation { get; set; }
+        public String description { get; set; }
 
-        [Column]
-        public String kana;
-        
-        [Column]
-        public String kanji;
-
-        [Column]
-        public String translation;
-
-        [Column]
-        public String description;
-        
-        /// <summary>
-        /// ATTENTION!!!!
-        /// if you create new types, make sure to place them under the others, and do not change
-        /// the order in any of the type lists otherwise all types will be propably inconsistent =(
-        /// </summary>
-        [Column]
         internal int type = (int)EType.other;
 
+        public float eFactorTranslation { get; set; }
+        public int lastRoundTranslation { get; set; }
+        public int nextRoundTranslation { get; set; }
 
-        [Column]
-        public float eFactorTranslation;
+        public float eFactorJapanese { get; set; }
+        public int lastRoundJapanese { get; set; }
+        public int nextRoundJapanese { get; set; }
 
-        [Column]
-        public int lastRoundTranslation;
-
-        [Column]
-        public int nextRoundTranslation;
-        
-
-        [Column]
-        public float eFactorJapanese;
-
-        [Column]
-        public int lastRoundJapanese;
-
-        [Column]
-        public int nextRoundJapanese;
-
-        /// <summary>
-        /// <para>Bit 0 and 1</para>
-        /// <para>--00 - Dont show Description</para>
-        /// <para>--01 - just show Description for German Word</para>
-        /// <para>--10 - just show Description for Japanese Word</para>
-        /// <para>--11 - Always show Description</para>
-        /// <para>Bit 2 and 3</para>
-        /// <para>00-- - Dont show Word</para>
-        /// <para>01-- - show just German Word</para>
-        /// <para>10-- - show just Japanese Word</para>
-        /// <para>11-- - show Both Words</para>
-        /// </summary>
-        [Column]
         private int showFlags = 15;
 
-        [Column]
-        public int timeStampJapanese;
-
-        [Column]
-        public int timeStampTranslation;
-
-        #endregion
-
-        #region Properties
-        
-        [Association(Name="lessonWordFK", IsForeignKey=true, ThisKey="lessonID", Storage="lesson")]
-        public Lesson Lesson
-        {
-            get { return lesson.Entity; }
-            set { lesson.Entity = value; }
-        }
-
-        public EType Type
-        {
-            get { return (EType)type; }
-            set { type = (int)value; }
-        }
-
-        /// <summary>
-        /// <para>0 - Dont show Description</para>
-        /// <para>1 - just show Description for German Word</para>
-        /// <para>2 - just show Description for Japanese Word</para>
-        /// <para>3 - Always show Description</para>
-        /// </summary>
-        public EShowFlags ShowDescription
-        {
-            get { return (EShowFlags)(showFlags & 3); }
-            set { showFlags = (showFlags & 12) + (int)value; }
-        }
-
-        /// <summary>
-        /// <para>0 - Dont show Word</para>
-        /// <para>1 - show just German Word</para>
-        /// <para>2 - show just Japanese Word</para>
-        /// <para>3 - show Both Words</para>
-        /// </summary>
-        public EShowFlags ShowWord
-        {
-            get { return (EShowFlags)(showFlags >> 2); }
-            set { showFlags = ((int)value << 2) + (showFlags & 3); }
-        }
+        public int timeStampJapanese { get; set; }
+        public int timeStampTranslation { get; set; }
 
         #endregion
 
@@ -175,15 +84,18 @@ namespace NihongoSenpai.Data.Database
             Fill(other);
         }
 
-        public Word(String properties, Lesson lesson)
+        public Word(String properties)
         {
-            Lesson = lesson;
-            lessonID = lesson.id;
-
             Fill(properties);
         }
 
         #endregion
+
+        public EType Type
+        {
+            get { return (EType)type; }
+            set { type = (int)value; }
+        }
 
         #region ToString
 
@@ -215,25 +127,16 @@ namespace NihongoSenpai.Data.Database
         {
             StringBuilder sb = new StringBuilder();
 
-            if (Type == EType.grammar)
+            if (kanji != "")
             {
-                sb.AppendLine("Japanisch: " + kana);
-                sb.AppendLine("Deutsch: " + translation);
-                sb.Append("Beispiel: " + kanji);
-            }
-            else
-            {
-                if (kanji != "")
-                {
-                    sb.Append(kanji);
-                    sb.Append(" - ");
-                }
-
-                sb.Append(kana);
+                sb.Append(kanji);
                 sb.Append(" - ");
-                sb.Append(translation);
             }
 
+            sb.Append(kana);
+            sb.Append(" - ");
+            sb.Append(translation);
+            
             return sb.ToString();
         }
 
@@ -313,23 +216,23 @@ namespace NihongoSenpai.Data.Database
         /// returns a type string by the given type
         /// </summary>
         /// <param name="returnOther">if true, the type other returns "Sonstige" as string, otherwise it returns an empty string</param>
-        public static String GetTypeString(EType type, bool returnOther = false)
+        public static String GetTypeString(Word.EType type, bool returnOther = false)
         {
             switch (type)
             {
-                case EType.noun       : return "Nomen";
-                case EType.verb1      : return "う-Verb";
-                case EType.verb2      : return "る-Verb";
-                case EType.verb3      : return "する-Verb";
-                case EType.iAdjective : return "い-Adj";
-                case EType.naAdjective: return "な-Adj";
-                case EType.adverb     : return "Adverb";
-                case EType.particle   : return "Partikel";
-                case EType.other      : return returnOther ? "Sonstige" : "";
-                case EType.prefix     : return "Präfix";
-                case EType.suffix     : return "Suffix";
-                case EType.phrase     : return "Phrase";
-                default               : return "";
+                case Word.EType.noun       : return "Nomen";
+                case Word.EType.verb1      : return "う-Verb";
+                case Word.EType.verb2      : return "る-Verb";
+                case Word.EType.verb3      : return "Irreguläres Verb";
+                case Word.EType.iAdjective : return "い-Adj";
+                case Word.EType.naAdjective: return "な-Adj";
+                case Word.EType.adverb     : return "Adverb";
+                case Word.EType.particle   : return "Partikel";
+                case Word.EType.other      : return returnOther ? "Sonstige" : "";
+                case Word.EType.prefix     : return "Präfix";
+                case Word.EType.suffix     : return "Suffix";
+                case Word.EType.phrase     : return "Phrase";
+                default                    : return "";
             }
         }
 

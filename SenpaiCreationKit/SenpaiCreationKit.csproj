@@ -118,6 +118,8 @@
     <Compile Include="Data\Kanji.cs" />
     <Compile Include="Data\Lesson.cs" />
     <Compile Include="Data\SenpaiDatabase.cs" />
+    <Compile Include="Data\Statistics\Kanji.cs" />
+    <Compile Include="Data\Statistics\Word.cs" />
     <Compile Include="Data\Word.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -146,6 +148,9 @@
     </Compile>
     <Compile Include="Pages\MarketplacePage.xaml.cs">
       <DependentUpon>MarketplacePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StatisticsPage.xaml.cs">
+      <DependentUpon>StatisticsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\AppResources1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -241,6 +246,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\MarketplacePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StatisticsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

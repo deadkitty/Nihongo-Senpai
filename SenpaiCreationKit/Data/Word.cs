@@ -27,6 +27,7 @@ namespace SenpaiCreationKit.Data
             suffix,
             prefix,
             phrase,
+            grammar,
             count,
             undefined = -1,
         }
@@ -201,22 +202,23 @@ namespace SenpaiCreationKit.Data
         /// returns a type string by the given type
         /// </summary>
         /// <param name="returnOther">if true, the type other returns "Sonstige" as string, otherwise it returns an empty string</param>
-        public static String GetTypeString(Word.EType type, bool returnOther = false)
+        public static String GetTypeString(EType type, bool returnOther = false)
         {
             switch (type)
             {
-                case Word.EType.noun: return "Nomen";
-                case Word.EType.verb1: return "う-Verb";
-                case Word.EType.verb2: return "る-Verb";
-                case Word.EType.verb3: return "する-Verb";
-                case Word.EType.iAdjective: return "い-Adj";
-                case Word.EType.naAdjective: return "な-Adj";
-                case Word.EType.adverb: return "Adverb";
-                case Word.EType.particle: return "Partikel";
-                case Word.EType.other: return returnOther ? "Sonstige" : "";
-                case Word.EType.prefix: return "Präfix";
-                case Word.EType.suffix: return "Suffix";
-                case Word.EType.phrase: return "Phrase";
+                case EType.noun: return "Nomen";
+                case EType.verb1: return "う-Verb";
+                case EType.verb2: return "る-Verb";
+                case EType.verb3: return "する-Verb";
+                case EType.iAdjective: return "い-Adj";
+                case EType.naAdjective: return "な-Adj";
+                case EType.adverb: return "Adverb";
+                case EType.particle: return "Partikel";
+                case EType.other: return returnOther ? "Sonstige" : "";
+                case EType.prefix: return "Präfix";
+                case EType.suffix: return "Suffix";
+                case EType.phrase: return "Phrase";
+                case EType.grammar:return "Grammatik";
                 default: return "";
             }
         }

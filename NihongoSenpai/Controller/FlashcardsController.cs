@@ -29,17 +29,6 @@ namespace NihongoSenpai.Controller
             FlashcardsData.ActiveKanjis = new List<Kanji>();
 
             LoadLessons();
-
-            //refactoring repetion/nextInterval for new design pattern
-            //foreach (Kanji kanji in FlashcardsData.Kanjis)
-            //{
-            //    kanji.nextRound -= kanji.lastRound;
-
-            //    kanji.nextRound = (int)MathHelper.Clamp(kanji.nextRound, 0, 100);
-
-            //    kanji.lastRound = 0;
-            //}
-            //DataManager.SaveChanges();
         }
 
         public static void LoadLessons()
@@ -72,28 +61,31 @@ namespace NihongoSenpai.Controller
         {
             newKanjisAdded = 0;
 
-            foreach (Kanji k in FlashcardsData.Kanjis)
+            foreach (Kanji kanji in FlashcardsData.Kanjis)
             {
-                TryAddKanji(k);
+                TryAddKanji(kanji);
             }
         }
         
-        private static void TryAddKanji(Kanji k)
+        private static void TryAddKanji(Kanji kanji)
         {
-            if(k.nextRound <= AppSettings.KanjiRound)
+            if(kanji.nextRound <= AppSettings.KanjiRound)
             {
-                if(k.timestamp == 0)
+                if(kanji.timestamp == 0)
                 {
+                    kanji.lastRound = AppSettings.KanjiRound;
+                    kanji.nextRound = AppSettings.KanjiRound;
+
                     ++newKanjisAdded;
 
                     if(newKanjisAdded <= AppSettings.NewKanjiPerRound)
                     {
-                        FlashcardsData.ActiveKanjis.Add(k);
+                        FlashcardsData.ActiveKanjis.Add(kanji);
                     }
                 }
                 else
                 {
-                    FlashcardsData.ActiveKanjis.Add(k);
+                    FlashcardsData.ActiveKanjis.Add(kanji);
                 }
             }
         }
@@ -123,22 +115,15 @@ namespace NihongoSenpai.Controller
             {
                 if(repetition == 0)
                 {
-                    nextRound += 1;
-                    //interval = 1;
-                    //repetition = 1;
+                    ++nextRound;
                 }
                 else if(repetition == 1)
                 {
-                    //on supermemo the new intervall here is 6 but with 20 items per interval the next time i see this item again would be 80 items away o.0 too much i think^^
-                    //but maybe later i'll give the user an option to adjust the interval size, like with partlessons count
                     nextRound += 3;
-                    //repetition = 2;
                 }
                 else
                 {
                     nextRound = lastRound + (int)Math.Round(repetition * activeKanji.eFactor);
-                    //interval = (int)Math.Round(interval * activeKanji.eFactor);
-                    //++repetition;
                 }
                 
                 --FlashcardsData.ItemsLeft;
@@ -147,9 +132,7 @@ namespace NihongoSenpai.Controller
             else
             {
                 nextRound = AppSettings.KanjiRound;
-                //interval = 0;
-                //repetition = 0;
-
+                
                 ++FlashcardsData.ItemsWrong;
 
                 FlashcardsData.ActiveKanjis.Add(activeKanji);

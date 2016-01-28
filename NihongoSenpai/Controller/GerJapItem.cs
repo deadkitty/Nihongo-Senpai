@@ -96,15 +96,23 @@ namespace NihongoSenpai.Controller
         {
             shownText = source.translation;
 
-            if(source.kanji == "")
+            if(source.Type == Word.EType.grammar)
             {
                 hiddenText1 = source.kana;
-                hiddenText2 = "";
+                hiddenText2 = source.kanji;
             }
             else
             {
-                hiddenText1 = source.kanji + "、";
-                hiddenText2 = source.kana;
+                if (source.kanji == "")
+                {
+                    hiddenText1 = source.kana;
+                    hiddenText2 = "";
+                }
+                else
+                {
+                    hiddenText1 = source.kanji + "、";
+                    hiddenText2 = source.kana;
+                }
             }
             
             switch (source.ShowDescription)
@@ -118,7 +126,7 @@ namespace NihongoSenpai.Controller
 
         public void WriteBack()
         {
-            source.timeStampTranslation      = timestamp;
+            source.timeStampTranslation = timestamp;
             source.lastRoundTranslation = lastRound;
             source.nextRoundTranslation = nextRound;
             source.eFactorTranslation   = eFactor;

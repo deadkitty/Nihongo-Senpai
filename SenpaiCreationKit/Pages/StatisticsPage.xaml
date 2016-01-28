@@ -1,0 +1,19 @@
+﻿<Page x:Class="SenpaiCreationKit.Pages.StatisticsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SenpaiCreationKit.Pages"
+      mc:Ignorable="d" 
+      Width="{StaticResource AppWidth}"
+      Height="{StaticResource AppHeight}"
+      Loaded="Page_Loaded"
+      Background="{DynamicResource SelectButtonColor}">
+
+    <Grid>
+        <DataGrid x:Name="dataGrid" Margin="10,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="458" Width="1000"/>
+        <Button x:Name="backButton" Content="Zurück" HorizontalAlignment="Left" Margin="26,568,0,0" VerticalAlignment="Top" Width="74" Click="backButton_Click"/>
+        <Button x:Name="dataButton" Content="Laden" HorizontalAlignment="Left" Margin="110,568,0,0" VerticalAlignment="Top" Width="74" Click="dataButton_Click"/>
+
+    </Grid>
+</Page>
