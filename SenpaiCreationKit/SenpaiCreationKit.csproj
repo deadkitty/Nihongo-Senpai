@@ -106,6 +106,9 @@
     <Compile Include="Controls\DetailItem.xaml.cs">
       <DependentUpon>DetailItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\InsertItem.xaml.cs">
+      <DependentUpon>InsertItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\IPageUpdater.cs" />
     <Compile Include="Controls\SelectLessonsControl.xaml.cs">
       <DependentUpon>SelectLessonsControl.xaml</DependentUpon>
@@ -202,6 +205,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Controls\DetailItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\InsertItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

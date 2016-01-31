@@ -97,7 +97,9 @@ namespace NihongoSenpai.Data.Database
             
             database.SubmitChanges();
             
-            AppSettings.TimeStamp = 0;
+            AppSettings.TimeStamp  = 0;
+            AppSettings.VocabRound = 0;
+            AppSettings.KanjiRound = 0;
             AppSettings.SaveSettings();
         }
         

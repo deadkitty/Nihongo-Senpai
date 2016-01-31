@@ -471,4 +471,7 @@
   <data name="DeleteLessons" xml:space="preserve">
     <value>Lektionen löschen</value>
   </data>
+  <data name="Grammar" xml:space="preserve">
+    <value>Grammatik</value>
+  </data>
 </root>

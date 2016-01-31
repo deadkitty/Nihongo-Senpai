@@ -164,7 +164,7 @@ namespace SenpaiCreationKit.Pages
 
         private void cancelCreation_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show(AppResources.CancelEdit, AppResources.Really, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            if (MessageBox.Show(AppResources.CancelCreation, AppResources.Really, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
                 NavigationService.GoBack();
             }

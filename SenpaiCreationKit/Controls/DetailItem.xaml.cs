@@ -50,8 +50,9 @@ namespace SenpaiCreationKit.Controls
             sourceCloze = cloze;
 
             mainTextblock.Text = cloze.ToString();
-            descTextblock.Text = cloze.Inserts + "、" + cloze.Hints;
+            descTextblock.Text = cloze.Inserts;// + "、" + cloze.Hints;
         }
+
         public void Update()
         {
             if (sourceWord != null)
@@ -83,7 +84,7 @@ namespace SenpaiCreationKit.Controls
         public void Update(Cloze cloze)
         {
             mainTextblock.Text = cloze.ToString();
-            descTextblock.Text = cloze.Inserts + "、" + cloze.Hints;
+            descTextblock.Text = cloze.Inserts;// + "、" + cloze.Hints;
         }
     }
 }

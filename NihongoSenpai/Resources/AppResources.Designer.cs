@@ -295,6 +295,15 @@ namespace NihongoSenpai.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Grammatik ähnelt.
+        /// </summary>
+        public static string Grammar {
+            get {
+                return ResourceManager.GetString("Grammar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die い-Adjektiv ähnelt.
         /// </summary>
         public static string iAdj {

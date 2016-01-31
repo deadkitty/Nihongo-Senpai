@@ -17,6 +17,10 @@ namespace SenpaiCreationKit.Data
         public String Text { get; set; }
         [Column]
         public String Inserts { get; set; }
+
+        /// <summary>
+        /// not used anymore
+        /// </summary>
         [Column]
         public String Hints { get; set; }
 

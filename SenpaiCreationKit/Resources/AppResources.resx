@@ -261,4 +261,31 @@
   <data name="Choose" xml:space="preserve">
     <value>auswählen</value>
   </data>
+  <data name="Hints" xml:space="preserve">
+    <value>Hinweise</value>
+  </data>
+  <data name="Sentence" xml:space="preserve">
+    <value>Satz</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>hinzufügen</value>
+  </data>
+  <data name="InsertParts" xml:space="preserve">
+    <value>Lückentextstellen auswählen</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>entfernen</value>
+  </data>
+  <data name="SentenceTextboxCantBeEmpty" xml:space="preserve">
+    <value>Das Feld darf nicht leer sein!</value>
+  </data>
+  <data name="DeleteClozes" xml:space="preserve">
+    <value>Texte löschen</value>
+  </data>
+  <data name="SomeInsertPartsAreMissing" xml:space="preserve">
+    <value>Die Lücken für den Lückentext fehlen!</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>erstellen</value>
+  </data>
 </root>

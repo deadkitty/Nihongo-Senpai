@@ -238,6 +238,8 @@ namespace NihongoSenpai.Pages
         {
             int loadOptions = AppSettings.LoadOptions;
 
+            grammarCheckbox.IsChecked = loadOptions % 2 == 1 ? true : false;
+            loadOptions >>= 1;
             otherCheckbox.IsChecked = loadOptions % 2 == 1 ? true : false;
             loadOptions >>= 1;
             phrCheckbox.IsChecked = loadOptions % 2 == 1 ? true : false;
@@ -290,6 +292,8 @@ namespace NihongoSenpai.Pages
             loadOptions += phrCheckbox.IsChecked == true ? 1 : 0;
             loadOptions <<= 1;
             loadOptions += otherCheckbox.IsChecked == true ? 1 : 0;
+            loadOptions <<= 1;
+            loadOptions += grammarCheckbox.IsChecked == true ? 1 : 0;
 
             AppSettings.LoadOptions = loadOptions;
         }

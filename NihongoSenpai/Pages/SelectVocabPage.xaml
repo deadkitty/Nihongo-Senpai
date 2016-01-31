@@ -78,6 +78,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -86,18 +87,19 @@
 
                         <TextBlock Text="{Binding LocalizedResources.RangeOptions, Source={StaticResource LocalizedStrings}}" Grid.Row="0"/>
 
-                        <CheckBox x:Name="verb1Checkbox" Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="1" Grid.Column="0" Content="{Binding LocalizedResources.Verbs1,   Source={StaticResource LocalizedStrings}}"/>
-                        <CheckBox x:Name="verb2Checkbox" Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="1" Grid.Column="1" Content="{Binding LocalizedResources.Verbs2,   Source={StaticResource LocalizedStrings}}"/>
-                        <CheckBox x:Name="verb3Checkbox" Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="2" Grid.Column="0" Content="{Binding LocalizedResources.Verbs3,   Source={StaticResource LocalizedStrings}}"/>
-                        <CheckBox x:Name="iAdjCheckbox"  Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="2" Grid.Column="1" Content="{Binding LocalizedResources.iAdjs,    Source={StaticResource LocalizedStrings}}"/>
-                        <CheckBox x:Name="naAdjCheckbox" Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="3" Grid.Column="0" Content="{Binding LocalizedResources.naAdjs,   Source={StaticResource LocalizedStrings}}"/>
-                        <CheckBox x:Name="advCheckbox"   Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="3" Grid.Column="1" Content="{Binding LocalizedResources.Advs,     Source={StaticResource LocalizedStrings}}"/>
-                        <CheckBox x:Name="nounCheckbox"  Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="4" Grid.Column="0" Content="{Binding LocalizedResources.Nouns,    Source={StaticResource LocalizedStrings}}"/>
-                        <CheckBox x:Name="partCheckbox"  Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="4" Grid.Column="1" Content="{Binding LocalizedResources.Particle, Source={StaticResource LocalizedStrings}}"/>
-                        <CheckBox x:Name="prevCheckbox"  Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="5" Grid.Column="0" Content="{Binding LocalizedResources.Prefs,    Source={StaticResource LocalizedStrings}}"/>
-                        <CheckBox x:Name="suffCheckbox"  Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="5" Grid.Column="1" Content="{Binding LocalizedResources.Suffs,    Source={StaticResource LocalizedStrings}}"/>
-                        <CheckBox x:Name="phrCheckbox"   Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="6" Grid.Column="0" Content="{Binding LocalizedResources.Phrs,     Source={StaticResource LocalizedStrings}}"/>
-                        <CheckBox x:Name="otherCheckbox" Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="6" Grid.Column="1" Content="{Binding LocalizedResources.Others,   Source={StaticResource LocalizedStrings}}"/>
+                        <CheckBox x:Name="verb1Checkbox"   Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="1" Grid.Column="0" Content="{Binding LocalizedResources.Verbs1,   Source={StaticResource LocalizedStrings}}"/>
+                        <CheckBox x:Name="verb2Checkbox"   Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="1" Grid.Column="1" Content="{Binding LocalizedResources.Verbs2,   Source={StaticResource LocalizedStrings}}"/>
+                        <CheckBox x:Name="verb3Checkbox"   Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="2" Grid.Column="0" Content="{Binding LocalizedResources.Verbs3,   Source={StaticResource LocalizedStrings}}"/>
+                        <CheckBox x:Name="iAdjCheckbox"    Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="2" Grid.Column="1" Content="{Binding LocalizedResources.iAdjs,    Source={StaticResource LocalizedStrings}}"/>
+                        <CheckBox x:Name="naAdjCheckbox"   Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="3" Grid.Column="0" Content="{Binding LocalizedResources.naAdjs,   Source={StaticResource LocalizedStrings}}"/>
+                        <CheckBox x:Name="advCheckbox"     Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="3" Grid.Column="1" Content="{Binding LocalizedResources.Advs,     Source={StaticResource LocalizedStrings}}"/>
+                        <CheckBox x:Name="nounCheckbox"    Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="4" Grid.Column="0" Content="{Binding LocalizedResources.Nouns,    Source={StaticResource LocalizedStrings}}"/>
+                        <CheckBox x:Name="partCheckbox"    Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="4" Grid.Column="1" Content="{Binding LocalizedResources.Particle, Source={StaticResource LocalizedStrings}}"/>
+                        <CheckBox x:Name="prevCheckbox"    Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="5" Grid.Column="0" Content="{Binding LocalizedResources.Prefs,    Source={StaticResource LocalizedStrings}}"/>
+                        <CheckBox x:Name="suffCheckbox"    Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="5" Grid.Column="1" Content="{Binding LocalizedResources.Suffs,    Source={StaticResource LocalizedStrings}}"/>
+                        <CheckBox x:Name="phrCheckbox"     Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="6" Grid.Column="0" Content="{Binding LocalizedResources.Phrs,     Source={StaticResource LocalizedStrings}}"/>
+                        <CheckBox x:Name="otherCheckbox"   Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="6" Grid.Column="1" Content="{Binding LocalizedResources.Others,   Source={StaticResource LocalizedStrings}}"/>
+                        <CheckBox x:Name="grammarCheckbox" Style="{StaticResource CheckBoxStyle}" IsChecked="true" Grid.Row="7" Grid.Column="0" Content="{Binding LocalizedResources.Grammar,  Source={StaticResource LocalizedStrings}}"/>
 
                     </Grid>
 

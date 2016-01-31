@@ -61,6 +61,15 @@ namespace SenpaiCreationKit.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die hinzufügen ähnelt.
+        /// </summary>
+        public static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die alle ähnelt.
         /// </summary>
         public static string All {
@@ -133,6 +142,15 @@ namespace SenpaiCreationKit.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die erstellen ähnelt.
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Flashcardslektion erstellen ähnelt.
         /// </summary>
         public static string CreateFlashLesson {
@@ -183,6 +201,15 @@ namespace SenpaiCreationKit.Resources {
         public static string Delete {
             get {
                 return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Texte löschen ähnelt.
+        /// </summary>
+        public static string DeleteClozes {
+            get {
+                return ResourceManager.GetString("DeleteClozes", resourceCulture);
             }
         }
         
@@ -313,6 +340,15 @@ namespace SenpaiCreationKit.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Hinweise ähnelt.
+        /// </summary>
+        public static string Hints {
+            get {
+                return ResourceManager.GetString("Hints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Lektionen importieren ähnelt.
         /// </summary>
         public static string ImportLesson {
@@ -327,6 +363,15 @@ namespace SenpaiCreationKit.Resources {
         public static string InsertLesson {
             get {
                 return ResourceManager.GetString("InsertLesson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Lückentextstellen auswählen ähnelt.
+        /// </summary>
+        public static string InsertParts {
+            get {
+                return ResourceManager.GetString("InsertParts", resourceCulture);
             }
         }
         
@@ -430,11 +475,38 @@ namespace SenpaiCreationKit.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die entfernen ähnelt.
+        /// </summary>
+        public static string Remove {
+            get {
+                return ResourceManager.GetString("Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Lektionen Suchen ähnelt.
         /// </summary>
         public static string SearchLessons {
             get {
                 return ResourceManager.GetString("SearchLessons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Satz ähnelt.
+        /// </summary>
+        public static string Sentence {
+            get {
+                return ResourceManager.GetString("Sentence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Das Feld darf nicht leer sein! ähnelt.
+        /// </summary>
+        public static string SentenceTextboxCantBeEmpty {
+            get {
+                return ResourceManager.GetString("SentenceTextboxCantBeEmpty", resourceCulture);
             }
         }
         
@@ -453,6 +525,15 @@ namespace SenpaiCreationKit.Resources {
         public static string SetType {
             get {
                 return ResourceManager.GetString("SetType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Die Lücken für den Lückentext fehlen! ähnelt.
+        /// </summary>
+        public static string SomeInsertPartsAreMissing {
+            get {
+                return ResourceManager.GetString("SomeInsertPartsAreMissing", resourceCulture);
             }
         }
         

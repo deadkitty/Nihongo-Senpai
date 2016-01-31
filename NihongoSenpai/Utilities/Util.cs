@@ -174,7 +174,9 @@ namespace NihongoSenpai.Utilities
         public static Word.EType[] ExtractTypes(int loadOptions)
         {
             List<Word.EType> types = new List<Word.EType>();
-            
+
+            if (loadOptions % 2 == 1) types.Add(Word.EType.grammar);
+            loadOptions >>= 1;
             if (loadOptions % 2 == 1) types.Add(Word.EType.other);
             loadOptions >>= 1; 
             if (loadOptions % 2 == 1) types.Add(Word.EType.phrase);
