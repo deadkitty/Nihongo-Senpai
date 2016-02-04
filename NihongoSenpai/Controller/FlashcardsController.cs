@@ -146,7 +146,7 @@ namespace NihongoSenpai.Controller
             activeKanji.lastRound = lastRound;
         }
                 
-        public static void GetNext()
+        public static bool GetNext()
         {
             ++FlashcardsData.ItemIndex;
 
@@ -160,7 +160,18 @@ namespace NihongoSenpai.Controller
                 pageUpdater.RoundFinished();
             }
 
-            FlashcardsData.ItemIndex %= FlashcardsData.ActiveKanjis.Count;
+            if(FlashcardsData.ActiveKanjis.Count > 0)
+            {
+                FlashcardsData.ItemIndex %= FlashcardsData.ActiveKanjis.Count;
+            }
+            else
+            {
+                pageUpdater.EndPractice();
+
+                return false;
+            }
+
+            return true;
         }
 
         #endregion

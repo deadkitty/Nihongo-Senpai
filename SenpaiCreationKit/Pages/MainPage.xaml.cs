@@ -134,6 +134,8 @@ namespace SenpaiCreationKit.Pages
                         lessons.Add(lesson);
                     }
 
+                    lessons = lessons.OrderBy(x => x.id).ToList();
+
                     DataManager.ExportLessons(lessons, sw);
                 }
             }

@@ -52,7 +52,7 @@ namespace NihongoSenpai
             ScreenHeight = (float)Application.Current.Host.Content.ActualHeight;
 
             AppSettings.Initialize();
-            
+
             if (AppSettings.FirstStart)
             {
                 DataManager.ConnectToDatabase();

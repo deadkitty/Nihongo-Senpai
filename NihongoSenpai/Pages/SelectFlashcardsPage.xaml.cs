@@ -11,6 +11,7 @@ using NihongoSenpai.Settings;
 using NihongoSenpai.Resources;
 using NihongoSenpai.Data.Database;
 using NihongoSenpai.Controller;
+using NihongoSenpai.Data;
 
 namespace NihongoSenpai.Pages
 {
@@ -88,7 +89,15 @@ namespace NihongoSenpai.Pages
 
                 FlashcardsController.LoadLessons(selectedLessons);
 
-                NavigationService.Navigate(new Uri("/Pages/PracticeFlashcardsPage.xaml", UriKind.Relative));
+                if(FlashcardsData.ActiveKanjis.Count == 0)
+                {
+                    MessageBox.Show(AppResources.NoKanjisLeft);
+                    FlashcardsController.Deinitialize();
+                }
+                else
+                {
+                    NavigationService.Navigate(new Uri("/Pages/PracticeFlashcardsPage.xaml", UriKind.Relative));
+                }
 
                 setsListbox.SelectedItems.Clear();
             }

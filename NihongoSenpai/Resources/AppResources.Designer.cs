@@ -225,9 +225,9 @@ namespace NihongoSenpai.Resources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Lektionen Downloaden ähnelt.
         /// </summary>
-        public static string DownloadLesson {
+        public static string DownloadLessons {
             get {
-                return ResourceManager.GetString("DownloadLesson", resourceCulture);
+                return ResourceManager.GetString("DownloadLessons", resourceCulture);
             }
         }
         

@@ -462,7 +462,7 @@
   <data name="AddContent" xml:space="preserve">
     <value>Inhalt hinzufügen</value>
   </data>
-  <data name="DownloadLesson" xml:space="preserve">
+  <data name="DownloadLessons" xml:space="preserve">
     <value>Lektionen Downloaden</value>
   </data>
   <data name="GoToLesson" xml:space="preserve">

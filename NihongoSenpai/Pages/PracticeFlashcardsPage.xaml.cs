@@ -62,49 +62,61 @@ namespace NihongoSenpai.Pages
         private void correct1Button_Click(object sender, RoutedEventArgs e)
         {
             FlashcardsController.EvaluateKanji(5);
-            FlashcardsController.GetNext();
 
-            UpdateView();
+            if (FlashcardsController.GetNext())
+            {
+                UpdateView();
+            }
         }
 
         private void correct2Button_Click(object sender, RoutedEventArgs e)
         {
             FlashcardsController.EvaluateKanji(4);
-            FlashcardsController.GetNext();
 
-            UpdateView();
+            if (FlashcardsController.GetNext())
+            {
+                UpdateView();
+            }
         }
 
         private void correct3Button_Click(object sender, RoutedEventArgs e)
         {
             FlashcardsController.EvaluateKanji(3);
-            FlashcardsController.GetNext();
 
-            UpdateView();
+            if (FlashcardsController.GetNext())
+            {
+                UpdateView();
+            }
         }
 
         private void wrong1Button_Click(object sender, RoutedEventArgs e)
         {
             FlashcardsController.EvaluateKanji(2);
-            FlashcardsController.GetNext();
 
-            UpdateView();
+            if (FlashcardsController.GetNext())
+            {
+                UpdateView();
+            }
         }
 
         private void wrong2Button_Click(object sender, RoutedEventArgs e)
         {
             FlashcardsController.EvaluateKanji(1);
-            FlashcardsController.GetNext();
 
-            UpdateView();
+            if (FlashcardsController.GetNext())
+            {
+                UpdateView();
+            }
         }
 
         private void wrong3Button_Click(object sender, RoutedEventArgs e)
         {
             FlashcardsController.EvaluateKanji(0);
-            FlashcardsController.GetNext();
 
-            UpdateView();
+            if(FlashcardsController.GetNext())
+            {
+                UpdateView();
+            }
         }
         
         #endregion

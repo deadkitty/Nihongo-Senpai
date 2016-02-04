@@ -98,6 +98,7 @@ namespace NihongoSenpai.Pages
             if (MessageBox.Show("Lektion wirklich zurücksetzen???", "", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
                 DataManager.ResetLesson(AppData.SelectedLesson);
+                DataManager.SaveChanges();
             }
         }
     }

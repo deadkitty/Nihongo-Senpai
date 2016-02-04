@@ -231,7 +231,7 @@ namespace NihongoSenpai.Controller
             activeItem.LastRound = lastRound;
         }
 
-        public static void GetNext()
+        public static bool GetNext()
         {
             ++ VocabData.ItemIndex;
 
@@ -241,8 +241,19 @@ namespace NihongoSenpai.Controller
 
                 pageUpdater.RoundFinished();
             }
-            
-            VocabData.ItemIndex %= VocabData.ActiveItems.Count;
+
+            if (VocabData.ActiveItems.Count > 0)
+            {
+                VocabData.ItemIndex %= VocabData.ActiveItems.Count;
+            }
+            else
+            {
+                pageUpdater.EndPractice();
+
+                return false;
+            }
+
+            return true;
         }
 
         public static void EndPractice()

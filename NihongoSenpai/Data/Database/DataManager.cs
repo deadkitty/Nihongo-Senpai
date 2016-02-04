@@ -96,11 +96,6 @@ namespace NihongoSenpai.Data.Database
             }
             
             database.SubmitChanges();
-            
-            AppSettings.TimeStamp  = 0;
-            AppSettings.VocabRound = 0;
-            AppSettings.KanjiRound = 0;
-            AppSettings.SaveSettings();
         }
         
         /// <summary>
@@ -137,8 +132,6 @@ namespace NihongoSenpai.Data.Database
             w.lastRoundJapanese = 0;
             w.nextRoundJapanese = 0;
             w.timeStampJapanese = 0;
-
-            //w.ToggleJWord();
             
             //reset japanese members
             w.eFactorTranslation   = 2.5f;
@@ -151,10 +144,9 @@ namespace NihongoSenpai.Data.Database
 
         private static void ResetKanji(Kanji k)
         {
-            k.eFactor = 2.5f;
+            k.eFactor   = 2.5f;
             k.lastRound = 0;
             k.nextRound = 0;
-
             k.timestamp = 0;
         }
         

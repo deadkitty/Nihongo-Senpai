@@ -44,8 +44,6 @@ namespace NihongoSenpai.Pages
             AddDetailItems();
         }
 
- 
-
         private void editIcon_Click(object sender, System.EventArgs e)
         {            
             NavigationService.Navigate(new Uri("/Pages/EditLessonPage.xaml", UriKind.Relative));
@@ -79,6 +77,7 @@ namespace NihongoSenpai.Pages
             if (MessageBox.Show("Lektion wirklich zurücksetzen???", "", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
                 DataManager.ResetLesson(AppData.SelectedLesson);
+                DataManager.SaveChanges();
             }
         }
 

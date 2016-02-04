@@ -286,6 +286,11 @@ namespace NihongoSenpai.Pages
                 DataManager.ConnectToDatabase();
                 DataManager.ResetDatabase();
                 DataManager.CloseConnection();
+                                
+                AppSettings.TimeStamp = 0;
+                AppSettings.VocabRound = 0;
+                AppSettings.KanjiRound = 0;
+                AppSettings.SaveSettings();
 
                 MessageBox.Show(AppResources.DatabaseReseted);
             }

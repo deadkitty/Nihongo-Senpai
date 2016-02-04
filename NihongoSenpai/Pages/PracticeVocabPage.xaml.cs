@@ -77,9 +77,11 @@ namespace NihongoSenpai.Pages
             ToggleVisibility();
 
             VocabController.EvaluateWord(5);
-            VocabController.GetNext();
 
-            UpdateView();
+            if(VocabController.GetNext())
+            {
+                UpdateView();
+            }
         }
 
         private void correct2Button_Click(object sender, RoutedEventArgs e)
@@ -87,9 +89,11 @@ namespace NihongoSenpai.Pages
             ToggleVisibility();
 
             VocabController.EvaluateWord(4);
-            VocabController.GetNext();
 
-            UpdateView();
+            if (VocabController.GetNext())
+            {
+                UpdateView();
+            }
         }
 
         private void correct3Button_Click(object sender, RoutedEventArgs e)
@@ -97,9 +101,11 @@ namespace NihongoSenpai.Pages
             ToggleVisibility();
 
             VocabController.EvaluateWord(3);
-            VocabController.GetNext();
 
-            UpdateView();
+            if (VocabController.GetNext())
+            {
+                UpdateView();
+            }
         }
 
         private void wrong1Button_Click(object sender, RoutedEventArgs e)
@@ -107,9 +113,11 @@ namespace NihongoSenpai.Pages
             ToggleVisibility();
 
             VocabController.EvaluateWord(2);
-            VocabController.GetNext();
 
-            UpdateView();
+            if (VocabController.GetNext())
+            {
+                UpdateView();
+            }
         }
 
         private void wrong2Button_Click(object sender, RoutedEventArgs e)
@@ -117,9 +125,11 @@ namespace NihongoSenpai.Pages
             ToggleVisibility();
 
             VocabController.EvaluateWord(1);
-            VocabController.GetNext();
 
-            UpdateView();
+            if (VocabController.GetNext())
+            {
+                UpdateView();
+            }
         }
 
         private void wrong3Button_Click(object sender, RoutedEventArgs e)
@@ -127,9 +137,11 @@ namespace NihongoSenpai.Pages
             ToggleVisibility();
 
             VocabController.EvaluateWord(0);
-            VocabController.GetNext();
 
-            UpdateView();
+            if (VocabController.GetNext())
+            {
+                UpdateView();
+            }
         }
         
         #endregion
