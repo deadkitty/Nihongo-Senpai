@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using NihongoSenpai.Data;
+using NihongoSenpai.Model;
 using System.Windows.Media;
 using NihongoSenpai.Controller;
 
@@ -209,7 +209,7 @@ namespace NihongoSenpai.Pages
                 targetWordTextbox.Text = "";
                 sourceWordTextblock.Text = CombineWordsData.ActiveWord.translation;
 
-                if(CombineWordsData.ActiveWord.ShowDescription == Data.Database.Word.EShowFlags.justGerman || CombineWordsData.ActiveWord.ShowDescription == Data.Database.Word.EShowFlags.showBoth)
+                if(CombineWordsData.ActiveWord.ShowDescription == Model.Database.Word.EShowFlags.justGerman || CombineWordsData.ActiveWord.ShowDescription == Model.Database.Word.EShowFlags.showBoth)
                 {
                     descriptionTextblock.Text = CombineWordsData.ActiveWord.ToDescriptionString();
                 }

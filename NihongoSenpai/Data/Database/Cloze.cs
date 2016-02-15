@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 #pragma warning disable 0649
 
-namespace NihongoSenpai.Data.Database
+namespace NihongoSenpai.Model.Database
 {
     [Table(Name="Clozes")]
     public class Cloze

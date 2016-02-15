@@ -29,8 +29,8 @@ namespace SenpaiCreationKit.Pages
 
         private List<Lesson> lessons;
 
-        List<NihongoSenpai.Data.Database.Word> words;
-        List<NihongoSenpai.Data.Database.Kanji> kanjis;
+        List<NihongoSenpai.Model.Database.Word> words;
+        List<NihongoSenpai.Model.Database.Kanji> kanjis;
 
         #endregion
 
@@ -72,8 +72,8 @@ namespace SenpaiCreationKit.Pages
 
                         lessons = new List<Lesson>();
 
-                        words = new List<NihongoSenpai.Data.Database.Word>();
-                        kanjis = new List<NihongoSenpai.Data.Database.Kanji>();
+                        words = new List<NihongoSenpai.Model.Database.Word>();
+                        kanjis = new List<NihongoSenpai.Model.Database.Kanji>();
 
                         //read content from stream till end
                         while (!sr.EndOfStream)
@@ -84,8 +84,8 @@ namespace SenpaiCreationKit.Pages
                             {
                                 switch ((Lesson.EType)lesson.Type)
                                 {
-                                    case Lesson.EType.vocab : words .Add(new NihongoSenpai.Data.Database.Word (sr.ReadLine())); break;
-                                    case Lesson.EType.kanji : kanjis.Add(new NihongoSenpai.Data.Database.Kanji(sr.ReadLine())); break;
+                                    case Lesson.EType.vocab : words .Add(new NihongoSenpai.Model.Database.Word (sr.ReadLine())); break;
+                                    case Lesson.EType.kanji : kanjis.Add(new NihongoSenpai.Model.Database.Kanji(sr.ReadLine())); break;
                                     case Lesson.EType.insert: sr.ReadLine(); break;
                                 }
                             }

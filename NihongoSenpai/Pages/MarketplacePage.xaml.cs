@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 using Microsoft.Phone.Controls;
-using NihongoSenpai.Data.Database;
+using NihongoSenpai.Model.Database;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Windows;

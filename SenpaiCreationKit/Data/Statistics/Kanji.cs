@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NihongoSenpai.Data.Database
+namespace NihongoSenpai.Model.Database
 {
     public class Kanji
     {

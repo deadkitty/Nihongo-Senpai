@@ -1,5 +1,5 @@
-﻿using NihongoSenpai.Data;
-using NihongoSenpai.Data.Database;
+﻿using NihongoSenpai.Model;
+using NihongoSenpai.Model.Database;
 using NihongoSenpai.Settings;
 using NihongoSenpai.Utilities;
 using System;

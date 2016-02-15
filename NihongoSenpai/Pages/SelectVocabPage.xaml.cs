@@ -10,16 +10,16 @@ using Microsoft.Phone.Shell;
 using System.Windows.Media.Imaging;
 using NihongoSenpai.Settings;
 using NihongoSenpai.Resources;
-using NihongoSenpai.Data.Database;
+using NihongoSenpai.Model.Database;
 using NihongoSenpai.Controller;
-using NihongoSenpai.Data;
+using NihongoSenpai.Model;
 
 namespace NihongoSenpai.Pages
 {
     public partial class SelectVocabPage : PhoneApplicationPage
     {
         #region Fields
-                
+        
         private BitmapImage japGerIconSelectedBitmap;
         private BitmapImage japGerIconBitmap;
 

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 #pragma warning disable 0649
 
-namespace NihongoSenpai.Data.Database
+namespace NihongoSenpai.Model.Database
 {
     [Table(Name="Kanjis")]
     public class Kanji

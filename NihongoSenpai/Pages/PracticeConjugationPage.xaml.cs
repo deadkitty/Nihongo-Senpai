@@ -9,10 +9,10 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.Windows.Media;
 using NihongoSenpai.Controller;
-using NihongoSenpai.Data;
+using NihongoSenpai.Model;
 using NihongoSenpai.Utilities;
 using NihongoSenpai.Controls;
-using NihongoSenpai.Data.Database;
+using NihongoSenpai.Model.Database;
 using NihongoSenpai.Resources;
 
 namespace NihongoSenpai.Pages

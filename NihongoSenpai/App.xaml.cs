@@ -8,7 +8,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using NihongoSenpai.Resources;
 using Windows.ApplicationModel.Activation;
-using NihongoSenpai.Data.Database;
+using NihongoSenpai.Model.Database;
 using NihongoSenpai.Settings;
 using System.Collections.Generic;
 

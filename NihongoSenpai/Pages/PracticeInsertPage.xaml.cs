@@ -8,7 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using NihongoSenpai.Controller;
-using NihongoSenpai.Data;
+using NihongoSenpai.Model;
 using System.Windows.Media;
 using NihongoSenpai.Resources;
 

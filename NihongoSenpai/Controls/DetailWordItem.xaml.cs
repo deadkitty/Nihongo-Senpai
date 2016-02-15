@@ -9,7 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using NihongoSenpai.Data.Database;
+using NihongoSenpai.Model.Database;
 
 namespace NihongoSenpai.Controls
 {

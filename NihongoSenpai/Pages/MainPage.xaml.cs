@@ -17,7 +17,7 @@ using System.IO.IsolatedStorage;
 using Windows.Storage.Pickers;
 using Windows.ApplicationModel.Activation;
 using System.IO;
-using NihongoSenpai.Data.Database;
+using NihongoSenpai.Model.Database;
 using NihongoSenpai.Resources;
 
 namespace NihongoSenpai.Pages

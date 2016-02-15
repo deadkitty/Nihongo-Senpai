@@ -1,0 +1,18 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NihongoSenpaiTsu.Resources">
+
+    <SolidColorBrush x:Key="AppForeground" Color="Black"/>
+    <SolidColorBrush x:Key="AppBackground" Color="White"/>
+
+
+    <SolidColorBrush x:Key="MenuButtonColor"    Color="#8B1DE466"/>
+    <SolidColorBrush x:Key="ConfirmButtonColor" Color="#FF2EFF7A"/>
+
+    <LinearGradientBrush x:Key="SelectButtonColor" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#CC39CDEE" Offset="1"/>
+        <GradientStop Color="#CC317CFF"/>
+    </LinearGradientBrush>
+
+</ResourceDictionary>

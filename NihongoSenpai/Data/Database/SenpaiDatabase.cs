@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
 
-namespace NihongoSenpai.Data.Database
+namespace NihongoSenpai.Model.Database
 {
     public class SenpaiDatabase : DataContext
     {

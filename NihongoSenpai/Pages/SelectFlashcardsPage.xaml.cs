@@ -9,9 +9,9 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using NihongoSenpai.Settings;
 using NihongoSenpai.Resources;
-using NihongoSenpai.Data.Database;
+using NihongoSenpai.Model.Database;
 using NihongoSenpai.Controller;
-using NihongoSenpai.Data;
+using NihongoSenpai.Model;
 
 namespace NihongoSenpai.Pages
 {

@@ -1,0 +1,61 @@
+﻿<Page
+    x:Class="NihongoSenpaiTsu.Pages.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NihongoSenpaiTsu.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{StaticResource AppBackground}"
+    Foreground="{StaticResource AppForeground}">
+
+    <Hub x:Name="MenuRoot">
+        <Hub.Header>
+            <TextBlock x:Uid="MainPageHeader" Text="senpai header" FontFamily="{StaticResource AppFontFamily}"/>
+        </Hub.Header>
+
+        <HubSection>
+            <HubSection.Header>
+                <TextBlock x:Uid="MainPageExercises" Text="exercises section" FontFamily="{StaticResource AppFontFamily}" FontSize="35"/>
+            </HubSection.Header>
+            <DataTemplate>
+                <StackPanel>
+                    <Button Style="{StaticResource MenuButton}" x:Name="VocabButton"       x:Uid="MainPageVocabExercise"     Content="learn vocabs"     Click="VocabButton_Click"/>
+                    <Button Style="{StaticResource MenuButton}" x:Name="KanjiButton"       x:Uid="MainPageFlashExercise"     Content="learn flashcards" Click="KanjiButton_Click"/>
+                    <Button Style="{StaticResource MenuButton}" x:Name="GrammarButton"     x:Uid="MainPageGrammarExercise"   Content="learn grammar"    Click="GrammarButton_Click"/>
+                    <Button Style="{StaticResource MenuButton}" x:Name="CombineButton"     x:Uid="MainPageCombineExercise"   Content="combine words"    Click="CombineButton_Click"/>
+                    <Button Style="{StaticResource MenuButton}" x:Name="ConjugationButton" x:Uid="MainPageConjugateExercise" Content="conjugate words"  Click="ConjugationButton_Click"/>
+                </StackPanel>
+            </DataTemplate>
+        </HubSection>
+
+        <HubSection>
+            <HubSection.Header>
+                <TextBlock x:Uid="MainPageExplanations" Text="explanation section" FontFamily="{StaticResource AppFontFamily}" FontSize="35"/>
+            </HubSection.Header>
+            <DataTemplate>
+                <StackPanel>
+                    <Button Style="{StaticResource MenuButton}" x:Name="ShowVocabButton"   x:Uid="MainPageShowVocab"   Content="show vocabs"  Click="ShowVocabButton_Click"/>
+                    <Button Style="{StaticResource MenuButton}" x:Name="ShowKanjiButton"   x:Uid="MainPageShowFlash"   Content="show kanjis"  Click="ShowKanjiButton_Click"/>
+                    <Button Style="{StaticResource MenuButton}" x:Name="ShowGrammarButton" x:Uid="MainPageShowGrammar" Content="show grammar" Click="ShowGrammarButton_Click"/>
+                    <Button Style="{StaticResource MenuButton}" x:Name="SearchWordsButton" x:Uid="MainPageSearch"      Content="search"       Click="SearchWordsButton_Click"/>
+                </StackPanel>
+            </DataTemplate>
+        </HubSection>
+
+        <HubSection>
+            <HubSection.Header>
+                <TextBlock x:Uid="MainPageOthers" Text="others section" FontFamily="{StaticResource AppFontFamily}" FontSize="35"/>
+            </HubSection.Header>
+            <DataTemplate>
+                <StackPanel>
+                    <Button Style="{StaticResource MenuButton}" x:Name="AddContentButton" x:Uid="MainPageAddContent" Content="add content" Click="AddContentButton_Click"/>
+                    <Button Style="{StaticResource MenuButton}" x:Name="RestoreDbButton"  x:Uid="MainPageRestoreDb"  Content="restore db"  Click="RestoreDbButton_Click"/>
+                    <Button Style="{StaticResource MenuButton}" x:Name="SaveDbButton"     x:Uid="MainPageSaveDb"     Content="save db"     Click="SaveDbButton_Click"/>
+                    <Button Style="{StaticResource MenuButton}" x:Name="ResetDbButton"    x:Uid="MainPageResetDb"    Content="reset app"   Click="ResetDbButton_Click"/>
+                    <Button Style="{StaticResource MenuButton}" x:Name="ChangeBgButton"   x:Uid="MainPageChangeBg"   Content="change bg"   Click="ChangeBgButton_Click"/>
+                </StackPanel>
+            </DataTemplate>
+        </HubSection>
+    </Hub>
+</Page>
